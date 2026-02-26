@@ -6,6 +6,7 @@ import Team from './components/Team';
 import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
 import ParticleBackground from './components/ParticleBackground';
+import BugsOverlay from './components/BugsOverlay';
 
 const App = () => {
 
@@ -47,11 +48,38 @@ const App = () => {
   return (
     <div>
       <ParticleBackground isVisible={!isLanding} />
+      <BugsOverlay isLanding={isLanding} />
       {!isLanding && <Navbar />}
       <Hero isLanding={isLanding} onClick={handleInteraction} />
 
       {!isLanding && (
         <>
+          <div className="event-banner-section" id="bugx-event">
+            <h2 className="section-header" style={{ color: '#d20000', marginBottom: '0' }}>BUG X</h2>
+            <p style={{ marginTop: '0', fontSize: '1.2rem', fontFamily: '"Space Mono", monospace' }}>Debugging Grand Prix 2026</p>
+            <img
+              src="/assets/bug_poster.jpg"
+              alt="BugX Event Poster"
+              className="event-poster"
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "https://via.placeholder.com/600x800.png?text=Event+Poster+Missing+(Add+public/assets/bug_poster.jpg)";
+              }}
+            />
+            <a
+              href="https://forms.cloud.microsoft/pages/responsepage.aspx?id=LSD36rPvekOhA1Bbufv3X9i_OHNY5uZLrvoede0yp5dUNU9KUkpPWFo4UjJKVEI5OEJMU1Q2S0VZUy4u&route=shorturl"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ textDecoration: 'none' }}
+            >
+              <button className="submit-btn" style={{ fontSize: '1.2rem', padding: '1rem 2rem' }}>
+                Click here to register
+              </button>
+            </a>
+          </div>
+
+          <div className="section-separator"></div>
+
           <div className="section" id="about">
             <h2 className="section-header">ABOUT</h2>
             <p className="section-content">

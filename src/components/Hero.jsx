@@ -106,13 +106,24 @@ const Hero = ({ isLanding, onClick }) => {
                         />
                     )}
                     {visibleIndex >= 2 && (
-                        <DecryptedText
-                            text="Innovate. "
-                            speed={40}
-                            maxIterations={5}
-                            className="inline-block revealed-on-hover"
-                            autoStart={true}
-                        />
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <DecryptedText
+                                text="Innovate. "
+                                speed={40}
+                                maxIterations={5}
+                                className="inline-block revealed-on-hover"
+                                autoStart={true}
+                            />
+                            <div className="prompt-text" style={{
+                                opacity: isLanding ? 1 : 0,
+                                animation: isLanding ? 'pulse 2s infinite' : 'none',
+                                transition: 'opacity 1s ease-out, visibility 1s ease-out',
+                                visibility: isLanding ? 'visible' : 'hidden',
+                                pointerEvents: 'none'
+                            }}>
+                                (click/scroll to continue)
+                            </div>
+                        </div>
                     )}
                 </p>
                 <div
