@@ -55,6 +55,14 @@ const App = () => {
       {!isLanding && (
         <>
           <div className="event-banner-section" id="bugx-event">
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '1rem' }}>
+              <p style={{ fontFamily: '"Space Mono", monospace', opacity: 0.8, marginBottom: '0.5rem', fontSize: '0.9rem', letterSpacing: '1px', textTransform: 'uppercase' }}>In collaboration with</p>
+              <img
+                src="/assets/cotd.jpeg"
+                alt="COTD"
+                style={{ height: '80px', borderRadius: '12px', objectFit: 'contain' }}
+              />
+            </div>
             <h2 className="section-header" style={{ color: '#d20000', marginBottom: '0' }}>BUG X</h2>
             <p style={{ marginTop: '0', fontSize: '1.2rem', fontFamily: '"Space Mono", monospace' }}>Debugging Grand Prix 2026</p>
             <img
@@ -76,6 +84,20 @@ const App = () => {
                 Click here to register
               </button>
             </a>
+          </div>
+
+          <div className="section" id="title-sponsor" style={{ textAlign: 'center', marginTop: '-1rem', marginBottom: '4rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h2 className="sub-section-header" style={{ fontSize: '1.8rem', marginBottom: '1.5rem', fontFamily: '"Bruno Ace", sans-serif', color: '#f2f2f2' }}>TITLE SPONSOR</h2>
+            <img
+              src="/assets/title_sponsor.jpeg"
+              alt="Title Sponsor"
+              className="event-poster"
+              style={{ maxWidth: '500px', width: '100%', margin: '0 auto' }}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "https://via.placeholder.com/500x250.png?text=Title+Sponsor+Missing";
+              }}
+            />
           </div>
 
           <div className="section-separator"></div>
