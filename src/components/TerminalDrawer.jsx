@@ -75,12 +75,24 @@ const renderFormattedTerminalText = (text, isMatrixMode) => {
     });
 };
 
-const quickCommands = ['help', 'projects', 'events', 'team', 'achievements', 'contact', 'matrix', 'join', 'clear'];
+const CODEX_NEOFETCH_BANNER = `       __/\__          guest@codex-wou-node
+      /  ||  \\         --------------------
+     /  {CODE} \\        OS: Code{X} Cybernet Linux 2026 (Woxsen Node)
+    |   /  \\   |       Host: Woxsen University School of Technology
+    |  {  X }  |       Kernel: 6.12.0-codex-hardened-amd64
+    |   \\  /   |       Uptime: 24/7/365 (Active Collegiate Node)
+     \\  {____} /        Shell: codex-sh v2.6.0 (x86_64)
+      \\__||__/         Org: Hack Club Affiliate | Premier Tech Society
+                       Leadership: President Manish | VP Monish
+                       Mentor: Dr. Amogh Deshmukh (Asst. Dean - SoT)
+                       Palette: [ ■ Red ][ ■ White ][ ■ Cyan ][ ■ Green ]`;
+
+const quickCommands = ['help', 'neofetch', 'projects', 'events', 'team', 'achievements', 'contact', 'matrix', 'join', 'clear'];
 
 const TerminalDrawer = ({ isOpen, onClose }) => {
     const [history, setHistory] = useState([
-        { type: 'system', text: "Code{X} Terminal OS v2.6.0 [Woxsen Cybernet Node]" },
-        { type: 'system', text: "Type 'help' or click quick command chips below. Press 'matrix' for rain." }
+        { type: 'system', text: CODEX_NEOFETCH_BANNER },
+        { type: 'system', text: "\n// Code{X} Terminal OS v2.6.0 [Woxsen Cybernet Node]\n// Type 'help' or click quick chips below. Press 'matrix' for rain." }
     ]);
     const [input, setInput] = useState('');
     const [cmdHistory, setCmdHistory] = useState([]);
@@ -141,6 +153,7 @@ const TerminalDrawer = ({ isOpen, onClose }) => {
                 newEntries.push({
                     type: 'output',
                     text: `Available Commands:
+  • neofetch     - Display Code{X} Linux ASCII banner & system specs
   • projects     - View active open-source & innovation lab projects
   • events       - List recent hackathons, Bug-X, and bootcamps
   • team         - Display core leadership & mentor
@@ -151,6 +164,16 @@ const TerminalDrawer = ({ isOpen, onClose }) => {
   • whoami       - Display current session credentials
   • clear        - Clear terminal history
   • exit         - Close this terminal drawer`
+                });
+                break;
+
+            case 'neofetch':
+            case 'fastfetch':
+            case 'fetch':
+            case 'logo':
+                newEntries.push({
+                    type: 'system',
+                    text: CODEX_NEOFETCH_BANNER
                 });
                 break;
 
