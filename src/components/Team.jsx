@@ -12,7 +12,7 @@ const Team = () => {
 
     const executives = [
         { name: "Sufiyan", quote: "We don't discuss the future, We prototype it.", linkedin: "https://www.linkedin.com/in/mohd-sufiyan-naveed", github: "https://github.com/MSN-2007", image: "/assets/team/1exec.JPG" },
-        { name: "Parth", quote: "Precision Over Hype", linkedin: "https://www.linkedin.com/in/parthbajaj29", github: "", image: "/assets/team/3exec.JPG" },
+        { name: "Parth", quote: "Precision Over Hype", linkedin: "https://www.linkedin.com/in/parthbajaj29", github: "https://github.com/Parth-Bajaj", image: "/assets/team/3exec.JPG" },
         { name: "Levin", quote: "Building smart solutions, one line at a time.", linkedin: "https://www.linkedin.com/in/levin-josewell-kadasi-286917381", github: "https://github.com/levinjosewell", image: "/assets/team/4exec.JPG" },
         { name: "Chandrahas", quote: "White hat mindset in a black tie suit.", linkedin: "https://www.linkedin.com/in/chandrahas-thunga", github: "https://github.com/CodeInfinity08", image: "/assets/team/5exec.JPG" },
         { name: "Karthika", quote: "Learning today, leading tomorrow.", linkedin: "https://www.linkedin.com/in/juluri-k-bb6634346", github: "https://github.com/Julurikarthika316-cmd", image: "/assets/team/6exec.JPG" },
