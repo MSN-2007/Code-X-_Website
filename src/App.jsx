@@ -193,7 +193,7 @@ const App = () => {
   };
 
   const handleNavigate = (target, label) => {
-    audioFx.playLaserChirp();
+    audioFx.playSectionSound(target);
     setIsTransitioning(true);
     setTargetPageName(label || target.toUpperCase());
 
