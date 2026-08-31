@@ -2,6 +2,79 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { audioFx } from '../utils/audioFx';
 
+const renderFormattedTerminalText = (text, isMatrixMode) => {
+    if (!text || typeof text !== 'string') return text;
+
+    const urlOrEmailRegex = /(https?:\/\/[^\s]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+    const parts = text.split(urlOrEmailRegex);
+
+    return parts.map((part, i) => {
+        if (!part) return null;
+        if (part.startsWith('http://') || part.startsWith('https://')) {
+            return (
+                <a
+                    key={i}
+                    href={part}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                        color: isMatrixMode ? '#00ffcc' : '#ff4d4d',
+                        textDecoration: 'underline',
+                        textUnderlineOffset: '3px',
+                        fontWeight: 600,
+                        transition: 'all 0.2s ease',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '2px'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.color = '#ffffff';
+                        e.currentTarget.style.textShadow = isMatrixMode ? '0 0 8px #00ff66' : '0 0 8px #ff4d4d';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.color = isMatrixMode ? '#00ffcc' : '#ff4d4d';
+                        e.currentTarget.style.textShadow = 'none';
+                    }}
+                >
+                    {part} <span style={{ fontSize: '0.75rem' }}>↗</span>
+                </a>
+            );
+        } else if (part.includes('@') && !part.includes(' ') && part.includes('.')) {
+            return (
+                <a
+                    key={i}
+                    href={`mailto:${part}`}
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                        color: isMatrixMode ? '#00ffcc' : '#ff4d4d',
+                        textDecoration: 'underline',
+                        textUnderlineOffset: '3px',
+                        fontWeight: 600,
+                        transition: 'all 0.2s ease',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '2px'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.color = '#ffffff';
+                        e.currentTarget.style.textShadow = isMatrixMode ? '0 0 8px #00ff66' : '0 0 8px #ff4d4d';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.color = isMatrixMode ? '#00ffcc' : '#ff4d4d';
+                        e.currentTarget.style.textShadow = 'none';
+                    }}
+                >
+                    {part} <span style={{ fontSize: '0.75rem' }}>✉</span>
+                </a>
+            );
+        }
+        return part;
+    });
+};
+
 const quickCommands = ['help', 'projects', 'events', 'team', 'achievements', 'contact', 'matrix', 'join', 'clear'];
 
 const TerminalDrawer = ({ isOpen, onClose }) => {
@@ -364,7 +437,7 @@ Follow @codex_wou for official intake announcements!`
                                                 ? (isMatrixMode ? '#00ff66' : '#ff4d4d')
                                                 : (isMatrixMode ? '#00ff66' : '#b5b5b5')
                                 }}>
-                                    {entry.text}
+                                    {renderFormattedTerminalText(entry.text, isMatrixMode)}
                                 </div>
                             ))}
 
