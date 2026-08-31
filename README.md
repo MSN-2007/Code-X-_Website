@@ -83,38 +83,12 @@ The **Code{X} Portal** is an interactive web experience featuring real-time Web 
 
 ---
 
-## 🏛️ Leadership & Organization Roster
+## 🏛️ Leadership & Community
 
-### Faculty Mentorship & Executive Leadership
+Code{X} is guided by the mentorship of **Woxsen University's School of Technology** faculty and driven by collegiate student leaders, core domain architects, and executive teams across AI/ML, Cybersecurity, Web Engineering, Competitive Programming, and Creative Design.
 
-| Role | Name | Bio / Vision | Socials |
-| :--- | :--- | :--- | :--- |
-| **Faculty Mentor** | **Dr. Amogh Deshmukh** | Assistant Dean — School of Technology, Woxsen University | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dr-amogh-deshmukh-35009b17/?originalSubdomain=in) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/amoghpesit) |
-| **President** | **Manish** | *"I write code that writes outcomes."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/manishreddyvem/) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Vem-Manish) |
-| **Vice President** | **Monish** | *"Logic on the Board. Vision in the Code."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/monishrithvik) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/MonishRithvik) |
-
-### Core Members
-
-| Name | Quote | Socials |
-| :--- | :--- | :--- |
-| **Nitin** | *"Building the logic today that automates the world of tomorrow."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/nitin-dasari/) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/nikky-767) |
-| **Hassan** | *"My code works and breaks at the same time, like Schrödinger's Cat."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/shaik-hassan-572497328/) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Hassan-shaik) |
-| **Deepti** | *"I am trying (definitely not my best)."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/deepti0the0goat) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/AMK488) |
-| **Sudarshan** | *"Building intelligent systems. Breaking normal limits."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://in.linkedin.com/in/sudarshanmaddi) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/suddhumaddi) |
-| **Adeeb** | *"404 : Social Life not Found."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adeebehtesham) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/IAmTroj4n) |
-
-### Executives
-
-| Name | Quote | Socials |
-| :--- | :--- | :--- |
-| **Sufiyan** | *"We don't discuss the future, We prototype it."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mohd-sufiyan-naveed) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/MSN-2007) |
-| **Parth** | *"Precision Over Hype"* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/parthbajaj29) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Parth-Bajaj) |
-| **Levin** | *"Building smart solutions, one line at a time."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/levin-josewell-kadasi-286917381) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/levinjosewell) |
-| **Chandrahas** | *"White hat mindset in a black tie suit."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chandrahas-thunga) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/CodeInfinity08) |
-| **Karthika** | *"Learning today, leading tomorrow."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/juluri-k-bb6634346) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Julurikarthika316-cmd) |
-| **Rian** | *"If it ain't broke, don't fix it."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rian-islam-4933753a2/) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/AltenCode) |
-| **Samarth** | *"I am still thinking about a catchphrase.."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/samarth-sukesh-tolwala-1898403b0) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/samarthtolwala) |
-| **Chidvilas** | *"Cipher."* | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chidvilas-meesala-3ba313278/) [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/chidvilas05-code) |
+* 🎓 **Faculty Mentorship**: School of Technology, Woxsen University
+* 👥 **Explore the Active Team**: View the current leadership roster, core domain architects, and executive board on the **[Live Team Portal](https://codex-wou.vercel.app/#team)**.
 
 ---
 
