@@ -1,6 +1,23 @@
 import React, { useEffect, useState } from 'react';
 
-const Navbar = () => {
+const navItems = [
+    { label: 'HOME', target: 'home' },
+    { label: 'ABOUT', target: 'about' },
+    { label: 'PROJECTS', target: 'projects' },
+    { label: 'EVENTS', target: 'events' },
+    { label: 'ACHIEVEMENTS', target: 'achievements' },
+    { label: 'TEAM', target: 'team' },
+    { label: 'FAQ', target: 'faq' },
+    { label: 'CONTACT US', target: 'contact' }
+];
+
+const Navbar = ({
+    onNavigate,
+    activeSection = 'home',
+    onToggleTerminal,
+    isAudioActive = false,
+    onToggleAudio
+}) => {
     const [isOpen, setIsOpen] = useState(false);
     const desktopBreakpoint = 1024;
 
@@ -25,37 +42,133 @@ const Navbar = () => {
     }, []);
 
     const handleToggle = () => setIsOpen((prev) => !prev);
-    const handleLinkClick = () => setIsOpen(false);
+
+    const handleItemClick = (e, item) => {
+        e.preventDefault();
+        setIsOpen(false);
+        if (onNavigate) {
+            onNavigate(item.target, item.label);
+        } else {
+            if (item.target === 'home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                const element = document.getElementById(item.target);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+    };
 
     return (
         <nav id="navthing" aria-label="Primary">
             <div className="nav-header">
-                <div className="logo">
+                <div className="logo" style={{ cursor: 'pointer' }} onClick={(e) => handleItemClick(e, navItems[0])}>
                     <img
                         src="/assets/codex_dark_theme.png"
                         alt="CodeX Logo"
                         style={{ height: '2.25rem', width: 'auto' }}
                     />
                 </div>
-                <button
-                    type="button"
-                    className={`nav-toggle${isOpen ? ' open' : ''}`}
-                    aria-label="Toggle navigation"
-                    aria-expanded={isOpen}
-                    aria-controls="site-navigation"
-                    onClick={handleToggle}
-                >
-                    <span />
-                    <span />
-                    <span />
-                </button>
+
+                {/* HUD Action Buttons */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                    <button
+                        onClick={onToggleTerminal}
+                        title="Open Hacker Terminal (~)"
+                        style={{
+                            background: 'rgba(255, 255, 255, 0.05)',
+                            border: '1px solid rgba(210, 0, 0, 0.4)',
+                            borderRadius: '8px',
+                            color: '#ff4d4d',
+                            padding: '0.4rem 0.75rem',
+                            fontFamily: '"Space Mono", monospace',
+                            fontSize: '0.85rem',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.35rem',
+                            transition: 'all 0.2s ease'
+                        }}
+                    >
+                        <span>&gt;_</span> <span className="hide-mobile" style={{ fontSize: '0.75rem' }}>CLI</span>
+                    </button>
+
+                    <button
+                        onClick={onToggleAudio}
+                        title={isAudioActive ? "Mute Cyber Sound FX" : "Enable Cyber Sound FX"}
+                        style={{
+                            background: isAudioActive ? 'rgba(210, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.05)',
+                            border: `1px solid ${isAudioActive ? '#d20000' : 'rgba(255, 255, 255, 0.15)'}`,
+                            borderRadius: '8px',
+                            color: isAudioActive ? '#ffffff' : '#888',
+                            padding: '0.4rem 0.65rem',
+                            fontSize: '0.85rem',
+                            cursor: 'pointer',
+                            transition: 'all 0.2s ease'
+                        }}
+                    >
+                        {isAudioActive ? '🔊' : '🔇'}
+                    </button>
+
+                    <button
+                        type="button"
+                        className={`nav-toggle${isOpen ? ' open' : ''}`}
+                        aria-label="Toggle navigation"
+                        aria-expanded={isOpen}
+                        aria-controls="site-navigation"
+                        onClick={handleToggle}
+                    >
+                        <span />
+                        <span />
+                        <span />
+                    </button>
+                </div>
             </div>
+
             <ul id="site-navigation" className={`nav-links${isOpen ? ' open' : ''}`}>
-                <li><a href="#" onClick={handleLinkClick}><span className="opening_flower">{`{`}</span> HOME <span className="closing_flower">{`}`}</span></a></li>
-                <li><a href="#about" onClick={handleLinkClick}><span className="opening_flower">{`{`}</span> ABOUT <span className="closing_flower">{`}`}</span></a></li>
-                <li><a href="#events" onClick={handleLinkClick}><span className="opening_flower">{`{`}</span> EVENTS <span className="closing_flower">{`}`}</span></a></li>
-                <li><a href="#team" onClick={handleLinkClick}><span className="opening_flower">{`{`}</span> TEAM <span className="closing_flower">{`}`}</span></a></li>
-                <li><a href="#contact" onClick={handleLinkClick}><span className="opening_flower">{`{`}</span> CONTACT US <span className="closing_flower">{`}`}</span></a></li>
+                {navItems.map((item) => {
+                    const isActive = activeSection === item.target;
+                    return (
+                        <li key={item.target}>
+                            <a
+                                href={item.target === 'home' ? '#' : `#${item.target}`}
+                                onClick={(e) => handleItemClick(e, item)}
+                                className={isActive ? 'active-nav-link' : ''}
+                                style={{
+                                    color: isActive ? '#ffffff' : undefined,
+                                    textShadow: isActive ? '0 0 10px rgba(210,0,0,0.6)' : 'none',
+                                    transition: 'all 0.3s ease',
+                                    fontSize: '0.88rem'
+                                }}
+                            >
+                                <span
+                                    className="opening_flower"
+                                    style={{
+                                        color: isActive ? '#d20000' : undefined,
+                                        transform: isActive ? 'scale(1.2)' : 'scale(1)',
+                                        display: 'inline-block',
+                                        transition: 'all 0.3s ease'
+                                    }}
+                                >
+                                    {`{`}
+                                </span>{' '}
+                                {item.label}{' '}
+                                <span
+                                    className="closing_flower"
+                                    style={{
+                                        color: isActive ? '#d20000' : undefined,
+                                        transform: isActive ? 'scale(1.2)' : 'scale(1)',
+                                        display: 'inline-block',
+                                        transition: 'all 0.3s ease'
+                                    }}
+                                >
+                                    {`}`}
+                                </span>
+                            </a>
+                        </li>
+                    );
+                })}
             </ul>
         </nav>
     );
