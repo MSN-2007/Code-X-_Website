@@ -85,7 +85,7 @@ const CODEX_NEOFETCH_BANNER = `       /\\             guest@codex-wou-node
 |  /    \\  \\  |       Org: Hack Club Affiliate | Premier Tech Society
 | | {X}  |  | |       Mentor: Dr. Amogh Deshmukh (Asst. Dean - SoT)
  \\ \\____/  / /        Leadership: President Manish | VP Monish
-  \\_______/ /         Palette: [ ■ Red ][ ■ White ][ ■ Cyan ][ ■ Green ]`;
+  \\_______/ /`;
 
 const quickCommands = ['help', 'neofetch', 'projects', 'events', 'team', 'achievements', 'contact', 'matrix', 'join', 'clear'];
 
