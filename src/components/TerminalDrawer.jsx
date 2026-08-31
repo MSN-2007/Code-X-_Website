@@ -5,11 +5,48 @@ import { audioFx } from '../utils/audioFx';
 const renderFormattedTerminalText = (text, isMatrixMode) => {
     if (!text || typeof text !== 'string') return text;
 
-    const urlOrEmailRegex = /(https?:\/\/[^\s]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
-    const parts = text.split(urlOrEmailRegex);
+    const markdownAndUrlRegex = /(\[[^\]]+\]\([^)]+\)|https?:\/\/[^\s]+|[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/g;
+    const parts = text.split(markdownAndUrlRegex);
 
     return parts.map((part, i) => {
         if (!part) return null;
+
+        const mdMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (mdMatch) {
+            const [, label, url] = mdMatch;
+            const isMail = url.startsWith('mailto:');
+            return (
+                <a
+                    key={i}
+                    href={url}
+                    target={isMail ? '_self' : '_blank'}
+                    rel={isMail ? undefined : 'noopener noreferrer'}
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                        color: isMatrixMode ? '#00ffcc' : '#ff4d4d',
+                        textDecoration: 'underline',
+                        textUnderlineOffset: '3px',
+                        fontWeight: 600,
+                        transition: 'all 0.2s ease',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '3px'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.color = '#ffffff';
+                        e.currentTarget.style.textShadow = isMatrixMode ? '0 0 8px #00ff66' : '0 0 8px #ff4d4d';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.color = isMatrixMode ? '#00ffcc' : '#ff4d4d';
+                        e.currentTarget.style.textShadow = 'none';
+                    }}
+                >
+                    {label} <span style={{ fontSize: '0.75rem' }}>{isMail ? '✉' : '↗'}</span>
+                </a>
+            );
+        }
+
         if (part.startsWith('http://') || part.startsWith('https://')) {
             return (
                 <a
@@ -29,45 +66,8 @@ const renderFormattedTerminalText = (text, isMatrixMode) => {
                         alignItems: 'center',
                         gap: '2px'
                     }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.color = '#ffffff';
-                        e.currentTarget.style.textShadow = isMatrixMode ? '0 0 8px #00ff66' : '0 0 8px #ff4d4d';
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.color = isMatrixMode ? '#00ffcc' : '#ff4d4d';
-                        e.currentTarget.style.textShadow = 'none';
-                    }}
                 >
                     {part} <span style={{ fontSize: '0.75rem' }}>↗</span>
-                </a>
-            );
-        } else if (part.includes('@') && !part.includes(' ') && part.includes('.')) {
-            return (
-                <a
-                    key={i}
-                    href={`mailto:${part}`}
-                    onClick={(e) => e.stopPropagation()}
-                    style={{
-                        color: isMatrixMode ? '#00ffcc' : '#ff4d4d',
-                        textDecoration: 'underline',
-                        textUnderlineOffset: '3px',
-                        fontWeight: 600,
-                        transition: 'all 0.2s ease',
-                        cursor: 'pointer',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '2px'
-                    }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.color = '#ffffff';
-                        e.currentTarget.style.textShadow = isMatrixMode ? '0 0 8px #00ff66' : '0 0 8px #ff4d4d';
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.color = isMatrixMode ? '#00ffcc' : '#ff4d4d';
-                        e.currentTarget.style.textShadow = 'none';
-                    }}
-                >
-                    {part} <span style={{ fontSize: '0.75rem' }}>✉</span>
                 </a>
             );
         }
@@ -161,11 +161,11 @@ const TerminalDrawer = ({ isOpen, onClose }) => {
                 newEntries.push({
                     type: 'output',
                     text: `// CODE{X} TRANSMISSION COORDINATES:
-• Email:      codex@woxsen.edu.in
-• Instagram:  https://www.instagram.com/codex_wou  (@codex_wou)
-• LinkedIn:   https://www.linkedin.com/company/codex-wou
-• GitHub:     https://github.com/CODEX-WoU/
-• Twitter/X:  https://x.com/CodeX_WOU`
+• Email:      [codex.woxsen.edu.in](mailto:codex@woxsen.edu.in?subject=Code%7BX%7D%20Woxsen%20-%20Inquiry%20%26%20Connect&body=Hello%20Code%7BX%7D%20Team%2C%0A%0AI%20am%20reaching%20out%20to%20connect%20with%20Code%7BX%7D%20at%20Woxsen%20University.%0A%0A%5BWrite%20your%20message%20here%5D%0A%0ABest%20regards%2C)
+• Instagram:  [codex_wou](https://www.instagram.com/codex_wou)
+• LinkedIn:   [codex_wou](https://www.linkedin.com/company/codex-wou)
+• GitHub:     [CODEX-WoU](https://github.com/CODEX-WoU/)
+• Twitter/X:  [CodeX_WOU](https://x.com/CodeX_WOU)`
                 });
                 break;
 
