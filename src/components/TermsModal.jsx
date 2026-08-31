@@ -117,9 +117,9 @@ const TermsModal = ({ isOpen, onClose }) => {
                             </div>
 
                             <div>
-                                <h4 style={{ color: '#fff', margin: '0 0 0.4rem 0', fontSize: '1rem' }}>3. Open Source Intellectual Property</h4>
+                                <h4 style={{ color: '#fff', margin: '0 0 0.4rem 0', fontSize: '1rem' }}>3. Innovation Lab & Intellectual Property</h4>
                                 <p style={{ margin: 0 }}>
-                                    Projects developed under the Code&#123;X&#125; Innovation Lab (such as JARVIS AI, AlgoArena, CyberSentinel) are licensed under standard open-source licenses (MIT/Apache 2.0). Contributors retain attribution for their original commits while granting the community rights to maintain and distribute the codebase.
+                                    Projects and developer tools engineered within the Code&#123;X&#125; Innovation Lab (such as JARVIS AI, AlgoArena, CyberSentinel) are student-led technical initiatives of Woxsen University. Contributors retain recognition for their contributions under club governance policies.
                                 </p>
                             </div>
 

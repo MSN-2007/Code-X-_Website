@@ -80,9 +80,8 @@ const CODEX_NEOFETCH_BANNER = `    .---.____.---.     guest@codex-wou-node
   |   /\\  \\/  /\\   |   OS: Code{X} Cybernet Linux 2026 (Woxsen Node)
   |  {  \\    /  }  |   Host: Woxsen University School of Technology
   |   \\  \\  /  /   |   Kernel: 6.12.0-codex-hardened-amd64
-  |    \\  \\/  /    |   Uptime: 24/7/365 (Active Collegiate Node)
   |    /  /\\  \\    |   Shell: codex-sh v2.6.0 (x86_64)
-  |   /  /  \\  \\   |   Org: Hack Club Affiliate | Premier Tech Society
+  |   /  /  \\  \\   |   Org: Woxsen University | Premier Tech Society
   |  {  /    \\  }  |   Mentor: Dr. Amogh Deshmukh (Asst. Dean - SoT)
    \\     /  \\     /    President - Manish | VP - Monish
     '---'____'---'`;
@@ -209,9 +208,10 @@ For inquiries, reach our administrative desk at: [codex.woxsen.edu.in](mailto:co
                     text: `// CODE{X} COMMUNITY CODE OF CONDUCT & TERMS:
 1. Inclusive and harassment-free hacker culture for all students.
 2. Academic integrity and zero-plagiarism policy during hackathons.
-3. Open-source innovation lab projects licensed under MIT/Apache 2.0.
+3. Innovation lab projects and proprietary tooling maintained by Code{X}.
 4. Ethical cybersecurity practices restricted to authorized sandbox targets.`
                 });
+                break;            });
                 break;
 
             case 'projects':

@@ -7,15 +7,14 @@
 
   <p align="center">
     <strong>Code. Create. Innovate.</strong><br>
-    The premier student-led technical society, innovation lab, and Hack Club affiliate at Woxsen University.
+    The premier student-led technical society and innovation lab at Woxsen University.
   </p>
 
   <p align="center">
     <a href="https://codex-wou.vercel.app/"><img src="https://img.shields.io/badge/🌐_Live_Portal-codex--wou.vercel.app-d20000?style=for-the-badge" alt="Live Portal"></a>
     <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19"></a>
     <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-7.0-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite 7"></a>
-    <a href="https://hackclub.com/"><img src="https://img.shields.io/badge/Affiliate-Hack_Club-ec3750?style=for-the-badge&logo=hackclub&logoColor=white" alt="Hack Club"></a>
-    <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-00e676?style=for-the-badge" alt="License"></a>
+    <img src="https://img.shields.io/badge/Woxsen-Tech_Society-red?style=for-the-badge" alt="Woxsen Tech Society">
   </p>
 
   <p align="center">
@@ -32,7 +31,7 @@
 
 ## ⚡ About Code{X}
 
-**Code{X}** is the official programming society and student innovation incubator at **Woxsen University (School of Technology)**. In affiliation with **Hack Club**, we build production-grade open-source software, host high-stakes competitive hackathons, lead cybersecurity CTF operations, and run developer bootcamps.
+**Code{X}** is the official programming society and student innovation incubator at **Woxsen University (School of Technology)**. We build production-grade software, host high-stakes competitive hackathons, lead cybersecurity CTF operations, and run developer bootcamps.
 
 The **Code{X} Portal** is an interactive web experience featuring real-time Web Audio API soundscapes, an interactive terminal drawer, a dynamic project explorer, and fluid micro-interactions.
 
