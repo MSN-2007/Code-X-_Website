@@ -1,4 +1,23 @@
+# Code{X} Programming Club — Robots & Crawlers Policy
 User-agent: *
 Allow: /
 
+# AI Crawlers & LLM Web Search Agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap & LLM Context References
 Sitemap: https://codex-wou.vercel.app/sitemap.xml
+# LLMs Context: https://codex-wou.vercel.app/llms.txt

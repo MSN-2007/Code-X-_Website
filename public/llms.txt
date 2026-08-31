@@ -1,0 +1,44 @@
+# Code{X} — The Programming Club | Woxsen University
+
+> Official machine-readable context for web scrapers, AI search agents, and automated crawlers.
+
+## Organization Summary
+- **Organization Name**: Code{x} - The Programming Club
+- **Affiliation**: School of Technology (SoT), Woxsen University, Hyderabad, India
+- **Partner / Ecosystem**: Hack Club
+- **Official Website**: https://codex-wou.vercel.app/
+- **Contact Email**: codex@woxsen.edu.in
+
+## Leadership & Mentorship
+- **Faculty Mentor**: Dr. Amogh Deshmukh (Assistant Dean - School of Technology, Woxsen University)
+- **President**: Manish
+- **Vice President**: Monish
+- **Core Leadership**: Nitin, Hassan, Deepti, Sudarshan, Adeeb
+- **Executive Board**: Sufiyan, Parth, Levin, Chandrahas, Karthika, Rian, Samarth, Chidvilas
+
+## Core Technical Domain Tracks
+1. **AI & Machine Learning (NEURAL_CORE)**: Autonomous agents, LLMs, Computer Vision (YOLO/Edge), and Deep Learning.
+2. **Web & Distributed Systems (SYSTEM_LATTICE)**: Ultra-fast reactive SPAs, WebSockets, REST/GraphQL APIs, Microservices.
+3. **Cyber Security & CTF (RECON_MATRIX)**: Binary exploitation, Web pentesting, Cryptography, Defensive forensics.
+4. **Competitive Programming (ALGO_DUEL)**: Advanced algorithms, Graph theory, Dynamic programming, ICPC/Codeforces problem solving.
+5. **UI/UX & Creative Tech (CYBER_DESIGN)**: Cyberpunk design systems, Framer Motion, 3D Web graphics, Brand identity.
+
+## Flagship Events & Achievements
+- **BUG-X: Debugging Grand Prix 2026**: Flagship debugging championship with 200+ participants hunting code vulnerabilities and algorithmic bottlenecks.
+- **Smart India Hackathon (SIH)**: Multiple squads qualifying as National Finalists across 2023 and 2025.
+- **Inter-College CTF**: 1st place championship in cybersecurity capture-the-flag hackathons.
+- **Woxsen Premier Technical Organization**: Awarded top impact student-led tech organization.
+- **50,000+ Lines of Open Source Code**: Active repositories and collegiate contributions.
+
+## Active Innovation Lab Projects
+- **JARVIS AI Core**: Autonomous multi-modal desktop & voice agent with low-latency LLM orchestration.
+- **AlgoArena**: Real-time 1v1 lightning algorithmic battleground with WebSocket test-runner.
+- **CyberSentinel**: Automated recon & vulnerability scanner for CTF operations.
+- **NeuroVision Edge**: Ultra-fast edge CV inference model running at 60fps.
+- **Code{X} Portal**: Club cybernetic web hub and telemetry engine.
+
+## Social & Developer Links
+- **Instagram**: https://www.instagram.com/codex_wou
+- **LinkedIn**: https://www.linkedin.com/company/codex-wou
+- **GitHub**: https://github.com/CODEX-WoU/
+- **Twitter / X**: https://x.com/CodeX_WOU
