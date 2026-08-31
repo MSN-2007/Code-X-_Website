@@ -2,7 +2,7 @@
 
   <img src="./public/assets/codex_dark_theme.png" alt="Code{X} Logo" width="380" />
 
-  # ⚡ Code{X} — The Premier Programming Club
+  # ⚡ Code{X} — The Programming Club
   ### **School of Technology • [Woxsen University](https://woxsen.edu.in/)**
 
   <p align="center">
