@@ -863,5 +863,11 @@ p {
   .hide-mobile {
     display: none !important;
   }
+
+  .cyber-hud-dock {
+    bottom: 16px !important;
+    left: 16px !important;
+    padding: 0.25rem 0.45rem !important;
+  }
 }
 

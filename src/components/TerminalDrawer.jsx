@@ -2,15 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { audioFx } from '../utils/audioFx';
 
+const quickCommands = ['help', 'projects', 'events', 'team', 'achievements', 'matrix', 'join', 'clear'];
+
 const TerminalDrawer = ({ isOpen, onClose }) => {
     const [history, setHistory] = useState([
         { type: 'system', text: "Code{X} Terminal OS v2.6.0 [Woxsen Cybernet Node]" },
-        { type: 'system', text: "Type 'help' to see all available commands, or 'matrix' for rain." }
+        { type: 'system', text: "Type 'help' or click quick command chips below. Press 'matrix' for rain." }
     ]);
     const [input, setInput] = useState('');
     const [cmdHistory, setCmdHistory] = useState([]);
     const [historyIndex, setHistoryIndex] = useState(-1);
     const [isMatrixMode, setIsMatrixMode] = useState(false);
+    const [isMaximized, setIsMaximized] = useState(false);
     const bottomRef = useRef(null);
     const inputRef = useRef(null);
 
@@ -179,6 +182,15 @@ Follow @codex_wou for official intake announcements!`
         setHistory(prev => [...prev, ...newEntries]);
     };
 
+    const handleQuickChipClick = (cmd) => {
+        audioFx.playClick();
+        if (cmd === 'clear') {
+            setHistory([]);
+        } else {
+            processCommand(cmd);
+        }
+    };
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -213,16 +225,17 @@ Follow @codex_wou for official intake announcements!`
                         transition={{ type: 'spring', damping: 25, stiffness: 320 }}
                         style={{
                             width: '100%',
-                            maxWidth: '750px',
-                            height: '520px',
+                            maxWidth: isMaximized ? '95vw' : '780px',
+                            height: isMaximized ? '90vh' : '540px',
                             backgroundColor: isMatrixMode ? '#021206' : '#0a0a0a',
                             border: `1px solid ${isMatrixMode ? '#00ff66' : 'rgba(210, 0, 0, 0.5)'}`,
-                            borderRadius: '12px',
-                            boxShadow: `0 0 35px ${isMatrixMode ? 'rgba(0, 255, 102, 0.3)' : 'rgba(210, 0, 0, 0.3)'}`,
+                            borderRadius: '14px',
+                            boxShadow: `0 0 40px ${isMatrixMode ? 'rgba(0, 255, 102, 0.3)' : 'rgba(210, 0, 0, 0.3)'}`,
                             display: 'flex',
                             flexDirection: 'column',
                             overflow: 'hidden',
-                            fontFamily: '"Space Mono", monospace'
+                            fontFamily: '"Space Mono", monospace',
+                            transition: 'max-width 0.3s ease, height 0.3s ease'
                         }}
                     >
                         {/* Header Bar */}
@@ -235,9 +248,9 @@ Follow @codex_wou for official intake announcements!`
                             alignItems: 'center'
                         }}>
                             <div style={{ display: 'flex', gap: '0.45rem', alignItems: 'center' }}>
-                                <span onClick={onClose} style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f56', cursor: 'pointer', display: 'inline-block' }} />
-                                <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e', display: 'inline-block' }} />
-                                <span style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#27c93f', display: 'inline-block' }} />
+                                <span onClick={onClose} title="Close" style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ff5f56', cursor: 'pointer', display: 'inline-block' }} />
+                                <span onClick={() => setIsMaximized(prev => !prev)} title="Toggle Size" style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#ffbd2e', cursor: 'pointer', display: 'inline-block' }} />
+                                <span onClick={() => setIsMatrixMode(prev => !prev)} title="Matrix Rain" style={{ width: '12px', height: '12px', borderRadius: '50%', backgroundColor: '#27c93f', cursor: 'pointer', display: 'inline-block' }} />
                                 <span style={{
                                     fontSize: '0.8rem',
                                     color: isMatrixMode ? '#00ff66' : '#b0b0b0',
@@ -247,18 +260,66 @@ Follow @codex_wou for official intake announcements!`
                                     bash — codex@terminal-node:~
                                 </span>
                             </div>
-                            <button
-                                onClick={onClose}
-                                style={{
-                                    background: 'transparent',
-                                    border: 'none',
-                                    color: '#888',
-                                    cursor: 'pointer',
-                                    fontSize: '0.9rem'
-                                }}
-                            >
-                                ✕
-                            </button>
+                            <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                                <button
+                                    onClick={() => setIsMaximized(prev => !prev)}
+                                    style={{
+                                        background: 'transparent',
+                                        border: 'none',
+                                        color: '#888',
+                                        cursor: 'pointer',
+                                        fontSize: '0.85rem'
+                                    }}
+                                    title={isMaximized ? "Restore Size" : "Maximize Window"}
+                                >
+                                    {isMaximized ? '❐' : '□'}
+                                </button>
+                                <button
+                                    onClick={onClose}
+                                    style={{
+                                        background: 'transparent',
+                                        border: 'none',
+                                        color: '#888',
+                                        cursor: 'pointer',
+                                        fontSize: '0.9rem'
+                                    }}
+                                    title="Close Window"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Quick Command Chips Toolbar */}
+                        <div style={{
+                            padding: '0.4rem 0.8rem',
+                            background: isMatrixMode ? 'rgba(0, 50, 20, 0.4)' : 'rgba(20, 20, 20, 0.6)',
+                            borderBottom: `1px solid ${isMatrixMode ? 'rgba(0,255,102,0.1)' : 'rgba(255, 255, 255, 0.06)'}`,
+                            display: 'flex',
+                            gap: '0.35rem',
+                            flexWrap: 'wrap',
+                            alignItems: 'center'
+                        }}>
+                            <span style={{ fontSize: '0.7rem', color: '#777', textTransform: 'uppercase', marginRight: '0.2rem' }}>Quick:</span>
+                            {quickCommands.map(cmd => (
+                                <button
+                                    key={cmd}
+                                    onClick={() => handleQuickChipClick(cmd)}
+                                    style={{
+                                        background: isMatrixMode ? 'rgba(0, 255, 102, 0.1)' : 'rgba(210, 0, 0, 0.12)',
+                                        border: `1px solid ${isMatrixMode ? 'rgba(0, 255, 102, 0.3)' : 'rgba(210, 0, 0, 0.3)'}`,
+                                        borderRadius: '4px',
+                                        color: isMatrixMode ? '#88ffaa' : '#ff4d4d',
+                                        fontSize: '0.72rem',
+                                        padding: '0.15rem 0.45rem',
+                                        fontFamily: '"Space Mono", monospace',
+                                        cursor: 'pointer',
+                                        transition: 'all 0.2s ease'
+                                    }}
+                                >
+                                    {cmd}
+                                </button>
+                            ))}
                         </div>
 
                         {/* Terminal Body */}
@@ -324,3 +385,4 @@ Follow @codex_wou for official intake announcements!`
 };
 
 export default TerminalDrawer;
+

@@ -15,6 +15,7 @@ import ScrollToTop from './components/ScrollToTop';
 import EventModal from './components/EventModal';
 import PageTransition from './components/PageTransition';
 import TerminalDrawer from './components/TerminalDrawer';
+import CyberHUDDock from './components/CyberHUDDock';
 import { audioFx } from './utils/audioFx';
 
 const eventsData = [
@@ -413,6 +414,14 @@ const App = () => {
           <Footer />
 
           <ScrollToTop />
+
+          {/* Floating Cyber HUD Dock for Terminal & Audio */}
+          <CyberHUDDock
+            onToggleTerminal={() => setIsTerminalOpen(prev => !prev)}
+            isAudioActive={isAudioActive}
+            onToggleAudio={handleToggleAudio}
+            isTerminalOpen={isTerminalOpen}
+          />
 
           {/* Event Details Modal */}
           {selectedEvent && (

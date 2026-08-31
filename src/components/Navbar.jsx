@@ -71,59 +71,18 @@ const Navbar = ({
                     />
                 </div>
 
-                {/* HUD Action Buttons */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                    <button
-                        onClick={onToggleTerminal}
-                        title="Open Hacker Terminal (~)"
-                        style={{
-                            background: 'rgba(255, 255, 255, 0.05)',
-                            border: '1px solid rgba(210, 0, 0, 0.4)',
-                            borderRadius: '8px',
-                            color: '#ff4d4d',
-                            padding: '0.4rem 0.75rem',
-                            fontFamily: '"Space Mono", monospace',
-                            fontSize: '0.85rem',
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '0.35rem',
-                            transition: 'all 0.2s ease'
-                        }}
-                    >
-                        <span>&gt;_</span> <span className="hide-mobile" style={{ fontSize: '0.75rem' }}>CLI</span>
-                    </button>
-
-                    <button
-                        onClick={onToggleAudio}
-                        title={isAudioActive ? "Mute Cyber Sound FX" : "Enable Cyber Sound FX"}
-                        style={{
-                            background: isAudioActive ? 'rgba(210, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.05)',
-                            border: `1px solid ${isAudioActive ? '#d20000' : 'rgba(255, 255, 255, 0.15)'}`,
-                            borderRadius: '8px',
-                            color: isAudioActive ? '#ffffff' : '#888',
-                            padding: '0.4rem 0.65rem',
-                            fontSize: '0.85rem',
-                            cursor: 'pointer',
-                            transition: 'all 0.2s ease'
-                        }}
-                    >
-                        {isAudioActive ? '🔊' : '🔇'}
-                    </button>
-
-                    <button
-                        type="button"
-                        className={`nav-toggle${isOpen ? ' open' : ''}`}
-                        aria-label="Toggle navigation"
-                        aria-expanded={isOpen}
-                        aria-controls="site-navigation"
-                        onClick={handleToggle}
-                    >
-                        <span />
-                        <span />
-                        <span />
-                    </button>
-                </div>
+                <button
+                    type="button"
+                    className={`nav-toggle${isOpen ? ' open' : ''}`}
+                    aria-label="Toggle navigation"
+                    aria-expanded={isOpen}
+                    aria-controls="site-navigation"
+                    onClick={handleToggle}
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
             </div>
 
             <ul id="site-navigation" className={`nav-links${isOpen ? ' open' : ''}`}>
