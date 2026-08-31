@@ -806,3 +806,32 @@ p {
   50% { opacity: 1; }
   100% { opacity: 0.4; }
 }
+
+/* Event Card Interactivity */
+.event-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(210, 0, 0, 0.4) !important;
+  box-shadow: 0 10px 25px rgba(210, 0, 0, 0.15);
+}
+
+.event-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Scroll To Top Button */
+.scroll-to-top-btn:hover {
+  background-color: #d20000 !important;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 0 25px rgba(210, 0, 0, 0.8) !important;
+}
+
+/* Event Modal Backdrop & Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.event-modal-content {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
