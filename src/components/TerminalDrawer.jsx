@@ -75,17 +75,17 @@ const renderFormattedTerminalText = (text, isMatrixMode) => {
     });
 };
 
-const CODEX_NEOFETCH_BANNER = `       /\\             guest@codex-wou-node
-      /  \\            --------------------
-     /\\   \\           OS: Code{X} Cybernet Linux 2026 (Woxsen Node)
-    /  \\   \\          Host: Woxsen University School of Technology
-   /    \\   \\         Kernel: 6.12.0-codex-hardened-amd64
-  /  /\\  \\   \\        Uptime: 24/7/365 (Active Collegiate Node)
- /  /  \\  \\   \\       Shell: codex-sh v2.6.0 (x86_64)
-|  /    \\  \\  |       Org: Hack Club Affiliate | Premier Tech Society
-| | {X}  |  | |       Mentor: Dr. Amogh Deshmukh (Asst. Dean - SoT)
- \\ \\____/  / /        President - Manish | VP - Monish
-  \\_______/ /`;
+const CODEX_NEOFETCH_BANNER = `    .---.____.---.     guest@codex-wou-node
+   /     \\  /     \\    --------------------
+  |   /\\  \\/  /\\   |   OS: Code{X} Cybernet Linux 2026 (Woxsen Node)
+  |  {  \\    /  }  |   Host: Woxsen University School of Technology
+  |   \\  \\  /  /   |   Kernel: 6.12.0-codex-hardened-amd64
+  |    \\  \\/  /    |   Uptime: 24/7/365 (Active Collegiate Node)
+  |    /  /\\  \\    |   Shell: codex-sh v2.6.0 (x86_64)
+  |   /  /  \\  \\   |   Org: Hack Club Affiliate | Premier Tech Society
+  |  {  /    \\  }  |   Mentor: Dr. Amogh Deshmukh (Asst. Dean - SoT)
+   \\     /  \\     /    President - Manish | VP - Monish
+    '---'____'---'`;
 
 const quickCommands = ['help', 'neofetch', 'projects', 'events', 'team', 'achievements', 'contact', 'matrix', 'join', 'clear'];
 
