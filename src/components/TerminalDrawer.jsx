@@ -81,7 +81,7 @@ const CODEX_NEOFETCH_BANNER = `    .---.____.---.     guest@codex-wou-node
   |  {  \\    /  }  |   Host: Woxsen University School of Technology
   |   \\  \\  /  /   |   Kernel: 6.12.0-codex-hardened-amd64
   |    /  /\\  \\    |   Shell: codex-sh v2.6.0 (x86_64)
-  |   /  /  \\  \\   |   Org: Woxsen University | Premier Tech Society
+  |   /  /  \\  \\   |   Org: Woxsen University | The Programming Club
   |  {  /    \\  }  |   Mentor: Dr. Amogh Deshmukh (Asst. Dean - SoT)
    \\     /  \\     /    President - Manish | VP - Monish
     '---'____'---'`;

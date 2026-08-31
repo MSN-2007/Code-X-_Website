@@ -37,7 +37,7 @@ const achievementsList = [
         description: "Code{X} offensive & defensive security squads dominated regional capture-the-flag hackathons, exploiting vulnerabilities in cryptography, reverse engineering, and web binaries."
     },
     {
-        title: "Woxsen Premier Tech Society Award",
+        title: "Woxsen Premier Programming Club Award",
         year: "2024 - 2026",
         badge: "Excellence Award",
         icon: (
@@ -47,7 +47,7 @@ const achievementsList = [
                 <path d="M15 26L12 36L20 32L28 36L25 26" stroke="#ff3333" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="rgba(210,0,0,0.08)" />
             </svg>
         ),
-        description: "Recognized as the highest-impact student-run technical society at Woxsen University, organizing induction bootcamps, masterclasses, and flagship competitions like Bug-X."
+        description: "Recognized as the highest-impact student-run programming club at Woxsen University, organizing induction bootcamps, masterclasses, and flagship competitions like Bug-X."
     },
     {
         title: "50,000+ Lines of Open Source Code",

@@ -26,7 +26,7 @@
 - **BUG-X: Debugging Grand Prix 2026**: Flagship debugging championship with 200+ participants hunting code vulnerabilities and algorithmic bottlenecks.
 - **Smart India Hackathon (SIH)**: Multiple squads qualifying as National Finalists across 2023 and 2025.
 - **Inter-College CTF**: 1st place championship in cybersecurity capture-the-flag hackathons.
-- **Woxsen Premier Technical Organization**: Awarded top impact student-led tech organization.
+- **Woxsen Premier Programming Club**: Awarded top impact student-led programming club.
 - **50,000+ Lines of Open Source Code**: Active repositories and collegiate contributions.
 
 ## Active Innovation Lab Projects

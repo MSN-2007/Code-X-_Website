@@ -7,7 +7,7 @@
 
   <p align="center">
     <strong>Code. Create. Innovate.</strong><br>
-    The premier student-led technical society and innovation lab at <a href="https://woxsen.edu.in/">Woxsen University</a>.
+    The premier student-led programming club and innovation lab at <a href="https://woxsen.edu.in/">Woxsen University</a>.
   </p>
 
   <p align="center">
@@ -32,7 +32,7 @@
 
 ## ⚡ About Code{X}
 
-**Code{X}** is the official programming society and student innovation incubator at **[Woxsen University](https://woxsen.edu.in/) (School of Technology)**. We build production-grade software, host high-stakes competitive hackathons, lead cybersecurity CTF operations, and run developer bootcamps.
+**Code{X}** is the official programming club and student innovation incubator at **[Woxsen University](https://woxsen.edu.in/) (School of Technology)**. We build production-grade software, host high-stakes competitive hackathons, lead cybersecurity CTF operations, and run developer bootcamps.
 
 The **Code{X} Portal** is an interactive web experience featuring real-time Web Audio API soundscapes, an interactive terminal drawer, a dynamic project explorer, and fluid micro-interactions.
 
