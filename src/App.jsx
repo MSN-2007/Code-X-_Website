@@ -16,6 +16,8 @@ import EventModal from './components/EventModal';
 import PageTransition from './components/PageTransition';
 import TerminalDrawer from './components/TerminalDrawer';
 import CyberHUDDock from './components/CyberHUDDock';
+import PrivacyModal from './components/PrivacyModal';
+import TermsModal from './components/TermsModal';
 import { audioFx } from './utils/audioFx';
 
 const eventsData = [
@@ -108,6 +110,8 @@ const App = () => {
   const [targetPageName, setTargetPageName] = useState('');
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isAudioActive, setIsAudioActive] = useState(false);
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+  const [isTermsOpen, setIsTermsOpen] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -411,7 +415,10 @@ const App = () => {
             <ContactUs />
           </motion.div>
 
-          <Footer />
+          <Footer
+            onOpenPrivacy={() => setIsPrivacyOpen(true)}
+            onOpenTerms={() => setIsTermsOpen(true)}
+          />
 
           <ScrollToTop />
 
@@ -438,6 +445,18 @@ const App = () => {
               onClose={() => setSelectedProject(null)}
             />
           )}
+
+          {/* Privacy Policy Modal */}
+          <PrivacyModal
+            isOpen={isPrivacyOpen}
+            onClose={() => setIsPrivacyOpen(false)}
+          />
+
+          {/* Terms and Conditions Modal */}
+          <TermsModal
+            isOpen={isTermsOpen}
+            onClose={() => setIsTermsOpen(false)}
+          />
 
           {/* Interactive Hacker Terminal */}
           <TerminalDrawer

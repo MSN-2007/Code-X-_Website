@@ -169,6 +169,28 @@ const TerminalDrawer = ({ isOpen, onClose }) => {
                 });
                 break;
 
+            case 'privacy':
+                newEntries.push({
+                    type: 'output',
+                    text: `// DATA GOVERNANCE & PRIVACY CHARTER:
+Code{X} strictly adheres to student data integrity. Event registrations, CTF credentials, and portfolio submissions are never sold or shared with external advertisers.
+For inquiries, reach our administrative desk at: [codex.woxsen.edu.in](mailto:codex@woxsen.edu.in)`
+                });
+                break;
+
+            case 'terms':
+            case 'rules':
+            case 'conduct':
+                newEntries.push({
+                    type: 'output',
+                    text: `// CODE{X} COMMUNITY CODE OF CONDUCT & TERMS:
+1. Inclusive and harassment-free hacker culture for all students.
+2. Academic integrity and zero-plagiarism policy during hackathons.
+3. Open-source innovation lab projects licensed under MIT/Apache 2.0.
+4. Ethical cybersecurity practices restricted to authorized sandbox targets.`
+                });
+                break;
+
             case 'projects':
                 newEntries.push({
                     type: 'output',
