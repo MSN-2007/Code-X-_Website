@@ -84,7 +84,7 @@ const CODEX_NEOFETCH_BANNER = `       /\\             guest@codex-wou-node
  /  /  \\  \\   \\       Shell: codex-sh v2.6.0 (x86_64)
 |  /    \\  \\  |       Org: Hack Club Affiliate | Premier Tech Society
 | | {X}  |  | |       Mentor: Dr. Amogh Deshmukh (Asst. Dean - SoT)
- \\ \\____/  / /        Leadership: President Manish | VP Monish
+ \\ \\____/  / /        President - Manish | VP - Monish
   \\_______/ /`;
 
 const quickCommands = ['help', 'neofetch', 'projects', 'events', 'team', 'achievements', 'contact', 'matrix', 'join', 'clear'];
