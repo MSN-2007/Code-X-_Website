@@ -27,10 +27,10 @@ const Footer = () => {
                 />
 
                 <div className="footer-icons" style={{ display: 'flex', gap: '1.25rem' }}>
-                    <a href="https://www.instagram.com/codex_wou" target="_blank" rel="noopener noreferrer" style={{ color: '#b1afaf', fontSize: '1.2rem', transition: 'color 0.3s' }}><i className="fa fa-instagram"></i></a>
-                    <a href="https://linkedin.com/company/codex-wou" target="_blank" rel="noopener noreferrer" style={{ color: '#b1afaf', fontSize: '1.2rem', transition: 'color 0.3s' }}><i className="fa fa-linkedin-square"></i></a>
-                    <a href="https://github.com/CODEX-WoU/" target="_blank" rel="noopener noreferrer" style={{ color: '#b1afaf', fontSize: '1.2rem', transition: 'color 0.3s' }}><i className="fa fa-github"></i></a>
-                    <a href="https://x.com/CodeX_WOU" target="_blank" rel="noopener noreferrer" style={{ color: '#b1afaf', fontSize: '1.2rem', transition: 'color 0.3s' }}><i className="fa fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/codex_wou" target="_blank" rel="noopener noreferrer" aria-label="CodeX Instagram" style={{ color: '#b1afaf', fontSize: '1.2rem', transition: 'color 0.3s' }}><i className="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://linkedin.com/company/codex-wou" target="_blank" rel="noopener noreferrer" aria-label="CodeX LinkedIn" style={{ color: '#b1afaf', fontSize: '1.2rem', transition: 'color 0.3s' }}><i className="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                    <a href="https://github.com/CODEX-WoU/" target="_blank" rel="noopener noreferrer" aria-label="CodeX GitHub Organization" style={{ color: '#b1afaf', fontSize: '1.2rem', transition: 'color 0.3s' }}><i className="fa fa-github" aria-hidden="true"></i></a>
+                    <a href="https://x.com/CodeX_WOU" target="_blank" rel="noopener noreferrer" aria-label="CodeX X (Twitter)" style={{ color: '#b1afaf', fontSize: '1.2rem', transition: 'color 0.3s' }}><i className="fa fa-twitter" aria-hidden="true"></i></a>
                 </div>
 
                 <p style={{ fontSize: '0.8rem', color: '#555', textAlign: 'center', maxWidth: '600px', margin: '0.5rem 0 0 0' }}>

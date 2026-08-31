@@ -9,20 +9,20 @@ const Team = () => {
         { name: "Deepti", quote: "I am trying (definitely not my best).", linkedin: "https://www.linkedin.com/in/deepti0the0goat", github: "https://github.com/AMK488", image: "/assets/team/4core.JPG" },
         { name: "Ganesh", quote: "I am still thinking about a catchphrase..", linkedin: "https://www.linkedin.com/in/sai-ganesha-munagari/", github: "https://github.com/gunsai75", image: "/assets/team/5core.JPG" },
         { name: "Sudarshan", quote: "Building intelligent systems. Breaking normal limits.", linkedin: "https://in.linkedin.com/in/sudarshanmaddi", github: "https://github.com/suddhumaddi", image: "/assets/team/6core.JPG" },
-        { name: "Monish", quote: "Logic on the Board. Vision in the Code.", linkedin: "https://www.linkedin.com/in/monishrithvik?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github: "https://github.com/MonishRithvik", image: "/assets/team/7core.JPG" },
-        { name: "Adeeb", quote: "404 : Social Life not Found.", linkedin: "https://www.linkedin.com/in/adeebehtesham?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github: "https://github.com/IAmTroj4n", image: "/assets/team/8core.JPG" },
-        { name: "Vennela", quote: "Where Logic meets Leadership.", linkedin: "linkedin.com/in/vennela-linga-ab48b630b", github: "github.com/LINGAVENNELA", image: "/assets/team/9core.JPG" },
+        { name: "Monish", quote: "Logic on the Board. Vision in the Code.", linkedin: "https://www.linkedin.com/in/monishrithvik", github: "https://github.com/MonishRithvik", image: "/assets/team/7core.JPG" },
+        { name: "Adeeb", quote: "404 : Social Life not Found.", linkedin: "https://www.linkedin.com/in/adeebehtesham", github: "https://github.com/IAmTroj4n", image: "/assets/team/8core.JPG" },
+        { name: "Vennela", quote: "Where Logic meets Leadership.", linkedin: "https://linkedin.com/in/vennela-linga-ab48b630b", github: "https://github.com/LINGAVENNELA", image: "/assets/team/9core.JPG" },
     ];
 
     const executives = [
         { name: "Sufiyan", quote: "We don't discuss the future, We prototype it.", linkedin: "https://www.linkedin.com/in/mohd-sufiyan-naveed", github: "https://github.com/MSN-2007", image: "/assets/team/1exec.JPG" },
         { name: "Saachi", quote: "Thinking in 4K", linkedin: "https://www.linkedin.com/in/saachi-patrao-6a542a30a/", github: "https://github.com/saachix", image: "/assets/team/2exec.JPG" },
-        { name: "Parth", quote: "Precision Over Hype", linkedin: "https://www.linkedin.com/in/parthbajaj29?utm_source=share_via&utm_content=profile&utm_medium=member_android", github: "", image: "/assets/team/3exec.JPG" },
-        { name: "Levin", quote: "Building smart solutions, one line at a time.", linkedin: "https://www.linkedin.com/in/levin-josewell-kadasi-286917381?utm_source=share_via&utm_content=profile&utm_medium=member_android", github: "github.com/levinjosewell", image: "/assets/team/4exec.JPG" },
-        { name: "Chandrahas", quote: "White hat mindset in a black tie suit.", linkedin: "https://www.linkedin.com/in/chandrahas-thunga?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", github: "https://github.com/CodeInfinity08", image: "/assets/team/5exec.JPG" },
-        { name: "Karthika", quote: "Learning today, leading tomorrow.", linkedin: "https://www.linkedin.com/in/juluri-k-bb6634346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app", github: "https://github.com/Julurikarthika316-cmd", image: "/assets/team/6exec.JPG" },
+        { name: "Parth", quote: "Precision Over Hype", linkedin: "https://www.linkedin.com/in/parthbajaj29", github: "", image: "/assets/team/3exec.JPG" },
+        { name: "Levin", quote: "Building smart solutions, one line at a time.", linkedin: "https://www.linkedin.com/in/levin-josewell-kadasi-286917381", github: "https://github.com/levinjosewell", image: "/assets/team/4exec.JPG" },
+        { name: "Chandrahas", quote: "White hat mindset in a black tie suit.", linkedin: "https://www.linkedin.com/in/chandrahas-thunga", github: "https://github.com/CodeInfinity08", image: "/assets/team/5exec.JPG" },
+        { name: "Karthika", quote: "Learning today, leading tomorrow.", linkedin: "https://www.linkedin.com/in/juluri-k-bb6634346", github: "https://github.com/Julurikarthika316-cmd", image: "/assets/team/6exec.JPG" },
         { name: "Rian", quote: "If it ain't broke, don't fix it.", linkedin: "https://www.linkedin.com/in/rian-islam-4933753a2/", github: "https://github.com/AltenCode", image: "/assets/team/7exec.JPG" },
-        { name: "Samarth", quote: "I am still thinking about a catchphrase..", linkedin: "https://www.linkedin.com/in/samarth-sukesh-tolwala-1898403b0?utm_source=share_via&utm_content=profile&utm_medium=member_android", github: "https://github.com/samarthtolwala", image: "/assets/team/8exec.JPG" },
+        { name: "Samarth", quote: "I am still thinking about a catchphrase..", linkedin: "https://www.linkedin.com/in/samarth-sukesh-tolwala-1898403b0", github: "https://github.com/samarthtolwala", image: "/assets/team/8exec.JPG" },
         { name: "Chidvilas", quote: "Cipher.", linkedin: "https://www.linkedin.com/in/chidvilas-meesala-3ba313278/", github: "https://github.com/chidvilas05-code", image: "/assets/team/9exec.JPG" },
     ];
 
@@ -36,7 +36,7 @@ const Team = () => {
                     <div className="team-grid">
                         <TeamCard
                             name="Amogh Deshmukh"
-                            quote={"Assisstant Dean - School Of Technology, Woxsen Unvirsity."}
+                            quote={"Assistant Dean - School of Technology, Woxsen University."}
                             image="/assets/team/mentor.JPG"
                             linkedin="https://www.linkedin.com/in/dr-amogh-deshmukh-35009b17/?originalSubdomain=in"
                             github="https://github.com/amoghpesit"
