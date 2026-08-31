@@ -141,7 +141,11 @@ const Hero = ({ isLanding, onClick }) => {
                     <a href="https://www.instagram.com/codex_wou" target="_blank" rel="noopener noreferrer"><i className="fa fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/company/codex-wou" target="_blank" rel="noopener noreferrer"><i className="fa fa-linkedin-square"></i></a>
                     <a href="https://github.com/CODEX-WoU/" target="_blank" rel="noopener noreferrer"><i className="fa fa-github"></i></a>
-                    <a href="https://x.com/CodeX_WOU" target="_blank" rel="noopener noreferrer"><i className="fa fa-twitter"></i></a>
+                    <a href="https://x.com/CodeX_WOU" target="_blank" rel="noopener noreferrer" aria-label="CodeX X (formerly Twitter)">
+                        <svg width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" style={{ verticalAlign: '-0.125em', display: 'inline-block' }}>
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
