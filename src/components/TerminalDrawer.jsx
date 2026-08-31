@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { audioFx } from '../utils/audioFx';
 
-const quickCommands = ['help', 'projects', 'events', 'team', 'achievements', 'matrix', 'join', 'clear'];
+const quickCommands = ['help', 'projects', 'events', 'team', 'achievements', 'contact', 'matrix', 'join', 'clear'];
 
 const TerminalDrawer = ({ isOpen, onClose }) => {
     const [history, setHistory] = useState([
@@ -72,11 +72,27 @@ const TerminalDrawer = ({ isOpen, onClose }) => {
   • events       - List recent hackathons, Bug-X, and bootcamps
   • team         - Display core leadership & mentor
   • achievements - Hall of fame victories and CTF milestones
+  • contact      - Official email, Instagram, and LinkedIn coordinates
   • join         - Information on recruitment tracks
   • matrix       - Toggle falling digital matrix stream
   • whoami       - Display current session credentials
   • clear        - Clear terminal history
   • exit         - Close this terminal drawer`
+                });
+                break;
+
+            case 'contact':
+            case 'mail':
+            case 'email':
+            case 'socials':
+                newEntries.push({
+                    type: 'output',
+                    text: `// CODE{X} TRANSMISSION COORDINATES:
+• Email:      codex@woxsen.edu.in
+• Instagram:  https://www.instagram.com/codex_wou  (@codex_wou)
+• LinkedIn:   https://www.linkedin.com/company/codex-wou
+• GitHub:     https://github.com/CODEX-WoU/
+• Twitter/X:  https://x.com/CodeX_WOU`
                 });
                 break;
 
