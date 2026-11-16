@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Node Not Found | Code{X}</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/svg+xml" href="/icon.svg">
+  <link rel="alternate icon" href="/favicon.png">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0a0a0a;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(rgba(210, 0, 0, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(210, 0, 0, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+    }
+    .card {
+      position: relative;
+      background: rgba(20, 20, 20, 0.85);
+      border: 1px solid rgba(210, 0, 0, 0.4);
+      border-radius: 16px;
+      padding: clamp(2rem, 5vw, 3.5rem);
+      max-width: 580px;
+      width: 100%;
+      box-shadow: 0 0 40px rgba(210, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+    .badge {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #ff4d4d;
+      background: rgba(210, 0, 0, 0.15);
+      border: 1px solid rgba(210, 0, 0, 0.4);
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+    h1 {
+      font-size: clamp(4rem, 12vw, 7rem);
+      font-weight: 900;
+      line-height: 1;
+      color: #d20000;
+      text-shadow: 0 0 25px rgba(210, 0, 0, 0.6);
+      margin-bottom: 0.5rem;
+      font-family: monospace;
+    }
+    h2 {
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    p {
+      color: #a0a0a0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-family: monospace;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      font-family: monospace;
+    }
+    .btn-primary {
+      background: #d20000;
+      color: #ffffff;
+      border: 1px solid #ff3333;
+      box-shadow: 0 0 15px rgba(210, 0, 0, 0.4);
+    }
+    .btn-primary:hover {
+      background: #ff1a1a;
+      box-shadow: 0 0 25px rgba(210, 0, 0, 0.8);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+  <div class="card">
+    <div class="badge">SYS_ERR // TRANSMISSION_DROPPED</div>
+    <h1>404</h1>
+    <h2>Node Coordinates Not Found</h2>
+    <p>The transmission path you navigated to does not exist or has been shifted in the cyber lattice.</p>
+    <div class="btn-group">
+      <a href="/" class="btn btn-primary">⚡ Return to Home Portal</a>
+      <a href="/#contact" class="btn btn-secondary">📡 Contact Support</a>
+    </div>
+  </div>
+</body>
+</html>
