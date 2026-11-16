@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="./public/assets/codex_dark_theme.png" alt="Code{X} Logo" width="380" />
+  <img src="./codex-website/public/assets/codex_dark_theme.png" alt="Code{X} Logo" width="380" />
 
   # ⚡ Code{X} — The Programming Club
   ### **School of Technology • [Woxsen University](https://woxsen.edu.in/)**

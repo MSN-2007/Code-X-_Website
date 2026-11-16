@@ -1,0 +1,6 @@
+/* Cleaned up as main styles are in index.css */
+
+.hero-content.all-decoded .revealed-on-hover {
+    color: #ffffff !important;
+    transition: color 0.5s ease;
+}
