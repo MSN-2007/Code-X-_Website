@@ -142,27 +142,6 @@ const Team = () => {
 
             <div className="section-separator" />
 
-            {/* Head of Creatives */}
-            <div className="leadership-section">
-                <div className="leadership-block">
-                    <h3 className="sub-section-header">Head of Creatives</h3>
-                    <div className="team-grid">
-                        {creatives.map(member => (
-                            <TeamCard
-                                key={member.name}
-                                name={member.name}
-                                quote={member.quote}
-                                image={member.image}
-                                linkedin={member.linkedin}
-                                github={member.github}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            <div className="section-separator" />
-
             {/* Head of Operations - Both members side by side under the same domain */}
             <div className="leadership-section">
                 <div className="leadership-block" style={{ maxWidth: '100%', width: '100%' }}>
@@ -181,6 +160,27 @@ const Team = () => {
                         }}
                     >
                         {operations.map(member => (
+                            <TeamCard
+                                key={member.name}
+                                name={member.name}
+                                quote={member.quote}
+                                image={member.image}
+                                linkedin={member.linkedin}
+                                github={member.github}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="section-separator" />
+
+            {/* Head of Creatives - Placed above Head of Marketing */}
+            <div className="leadership-section">
+                <div className="leadership-block">
+                    <h3 className="sub-section-header">Head of Creatives</h3>
+                    <div className="team-grid">
+                        {creatives.map(member => (
                             <TeamCard
                                 key={member.name}
                                 name={member.name}
