@@ -901,8 +901,24 @@ p {
   100% { box-shadow: 0 0 0px #d20000; }
 }
 
-/* Section entrance: plays once when framer triggers. Used as optional layering. */
-.section-teleport-active {
-  animation: cyberBeamIn 0.65s cubic-bezier(0.16, 1.1, 0.3, 1) forwards;
+/* Teleport Destination Target Lock Flash */
+@keyframes teleportArrivalPulse {
+  0% {
+    filter: brightness(2) drop-shadow(0 0 35px #ff2222);
+    transform: scale(0.985);
+  }
+  40% {
+    filter: brightness(1.3) drop-shadow(0 0 18px rgba(210,0,0,0.6));
+    transform: scale(1.008);
+  }
+  100% {
+    filter: brightness(1) drop-shadow(0 0 0px transparent);
+    transform: scale(1);
+  }
 }
+
+.teleport-arrival-active {
+  animation: teleportArrivalPulse 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
 

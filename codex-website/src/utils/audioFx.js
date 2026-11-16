@@ -55,6 +55,41 @@ class CyberAudioController {
         } catch (e) {}
     }
 
+    playTeleportWarp() {
+        if (!this.enabled) return;
+        this.init();
+        try {
+            const now = this.ctx.currentTime;
+            
+            // Sub-bass charging rumble
+            const subOsc = this.ctx.createOscillator();
+            const subGain = this.ctx.createGain();
+            subOsc.type = 'sawtooth';
+            subOsc.frequency.setValueAtTime(70, now);
+            subOsc.frequency.exponentialRampToValueAtTime(340, now + 0.28);
+            subGain.gain.setValueAtTime(0.12, now);
+            subGain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+            subOsc.connect(subGain);
+            subGain.connect(this.ctx.destination);
+            subOsc.start(now);
+            subOsc.stop(now + 0.35);
+
+            // Warp laser pitch sweep & burst
+            const warpOsc = this.ctx.createOscillator();
+            const warpGain = this.ctx.createGain();
+            warpOsc.type = 'sine';
+            warpOsc.frequency.setValueAtTime(280, now);
+            warpOsc.frequency.exponentialRampToValueAtTime(2000, now + 0.28);
+            warpOsc.frequency.exponentialRampToValueAtTime(420, now + 0.55);
+            warpGain.gain.setValueAtTime(0.09, now);
+            warpGain.gain.exponentialRampToValueAtTime(0.001, now + 0.55);
+            warpOsc.connect(warpGain);
+            warpGain.connect(this.ctx.destination);
+            warpOsc.start(now);
+            warpOsc.stop(now + 0.55);
+        } catch (e) {}
+    }
+
     playLaserChirp() {
         if (!this.enabled) return;
         this.init();
