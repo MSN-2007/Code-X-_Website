@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, useAnimation, useInView } from 'framer-motion';
 import './App.css';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -73,11 +73,11 @@ const eventsData = [
 const cyberTeleportVariants = {
   hidden: {
     opacity: 0,
-    y: 55,
-    scaleX: 0.88,
-    scaleY: 0.94,
-    filter: 'blur(14px) brightness(2.2) saturate(2)',
-    skewX: -1.5,
+    y: 70,
+    scaleX: 0.86,
+    scaleY: 0.92,
+    filter: 'blur(18px) brightness(2.5) saturate(2.5)',
+    skewX: -2,
   },
   visible: {
     opacity: 1,
@@ -87,12 +87,13 @@ const cyberTeleportVariants = {
     filter: 'blur(0px) brightness(1) saturate(1)',
     skewX: 0,
     transition: {
-      duration: 0.75,
-      ease: [0.16, 1.1, 0.3, 1],          // custom spring-like ease with slight overshoot
-      opacity:  { duration: 0.35, ease: 'easeOut' },
-      filter:   { duration: 0.5,  ease: 'easeOut' },
-      scaleX:   { duration: 0.65, ease: [0.34, 1.56, 0.64, 1] }, // bouncy
-      skewX:    { duration: 0.4,  ease: 'easeOut' },
+      duration: 0.9,
+      ease: [0.16, 1.1, 0.3, 1],
+      opacity:  { duration: 0.4,  ease: 'easeOut' },
+      filter:   { duration: 0.65, ease: 'easeOut' },
+      scaleX:   { duration: 0.7,  ease: [0.34, 1.56, 0.64, 1] },
+      skewX:    { duration: 0.45, ease: 'easeOut' },
+      y:        { duration: 0.75, ease: [0.16, 1.1, 0.3, 1] },
     }
   }
 };
@@ -102,79 +103,113 @@ const cardContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.08
-    }
+    transition: { staggerChildren: 0.11, delayChildren: 0.1 }
   }
 };
 
 // ─── Individual card beam-in ──────────────────────────────────────────────────
 const cardItemVariants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-    scale: 0.92,
-    filter: 'blur(8px) brightness(1.8)',
-  },
+  hidden: { opacity: 0, y: 32, scale: 0.9, filter: 'blur(10px) brightness(2)' },
   visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    filter: 'blur(0px) brightness(1)',
+    opacity: 1, y: 0, scale: 1, filter: 'blur(0px) brightness(1)',
     transition: {
-      duration: 0.5,
-      ease: [0.34, 1.26, 0.64, 1],
-      filter: { duration: 0.35, ease: 'easeOut' },
+      duration: 0.55, ease: [0.34, 1.26, 0.64, 1],
+      filter: { duration: 0.4, ease: 'easeOut' },
     }
   }
 };
 
-// ─── Scan-line separator that pulses when a section teleports in ──────────────
-const ScanLineSeparator = () => (
-  <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'center', margin: 'clamp(2.5rem,8vw,4rem) 0' }}>
-    <motion.div
-      style={{
-        width: 'min(90%, 56rem)',
-        height: '1px',
-        background: 'linear-gradient(90deg, transparent, rgba(210,0,0,0.6) 20%, rgba(255,77,77,0.9) 50%, rgba(210,0,0,0.6) 80%, transparent)',
-        position: 'relative',
-      }}
-      initial={{ scaleX: 0, opacity: 0 }}
-      whileInView={{ scaleX: 1, opacity: 1 }}
-      viewport={{ once: true, amount: 0.5 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+// ─── CyberSection: plays the teleport animation only AFTER element enters view ─
+// Using useInView + useAnimation prevents the "already in view on mount" problem
+// where viewport:once fires instantly with no visible effect.
+const CyberSection = ({ children, as: Tag = 'section', className, id, style, delay = 0 }) => {
+  const ref = useRef(null);
+  const controls = useAnimation();
+  // once:false so it can re-trigger; amount:0.12 = only 12% needs to be visible
+  const inView = useInView(ref, { once: false, amount: 0.12 });
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    if (inView && !hasAnimated) {
+      // Small delay so the element is fully painted before we animate
+      const timer = setTimeout(() => {
+        controls.start('visible');
+        setHasAnimated(true);
+      }, delay);
+      return () => clearTimeout(timer);
+    }
+  }, [inView, hasAnimated, controls, delay]);
+
+  const MotionTag = motion[Tag] || motion.div;
+
+  return (
+    <MotionTag
+      ref={ref}
+      className={className}
+      id={id}
+      style={{ willChange: 'transform, opacity, filter', ...style }}
+      variants={cyberTeleportVariants}
+      initial="hidden"
+      animate={controls}
     >
-      {/* centre dot */}
+      {children}
+    </MotionTag>
+  );
+};
+
+// ─── Scan-line separator between sections ─────────────────────────────────────
+const ScanLineSeparator = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) controls.start({ scaleX: 1, opacity: 1 });
+  }, [inView, controls]);
+
+  return (
+    <div ref={ref} style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'center', margin: 'clamp(2.5rem,8vw,4rem) 0' }}>
       <motion.div
         style={{
-          position: 'absolute',
-          top: '50%', left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: 6, height: 6,
-          borderRadius: '50%',
-          background: '#ff4d4d',
-          boxShadow: '0 0 10px #d20000, 0 0 24px #d20000',
+          width: 'min(90%, 56rem)',
+          height: '1px',
+          background: 'linear-gradient(90deg, transparent, rgba(210,0,0,0.6) 20%, rgba(255,77,77,0.95) 50%, rgba(210,0,0,0.6) 80%, transparent)',
+          position: 'relative',
+          transformOrigin: 'center',
         }}
-        animate={{ opacity: [1, 0.3, 1], scale: [1, 1.5, 1] }}
-        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      {/* travelling spark */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          top: '50%', left: 0,
-          transform: 'translateY(-50%)',
-          width: 40, height: 2,
-          background: 'linear-gradient(90deg, transparent, #ff4d4d)',
-          borderRadius: 2,
-        }}
-        animate={{ x: ['0%', '1300%'] }}
-        transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1.2 }}
-      />
-    </motion.div>
-  </div>
-);
+        initial={{ scaleX: 0, opacity: 0 }}
+        animate={controls}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {/* pulsing centre dot */}
+        <motion.div
+          style={{
+            position: 'absolute', top: '50%', left: '50%',
+            transform: 'translate(-50%, -50%)',
+            width: 7, height: 7, borderRadius: '50%',
+            background: '#ff4d4d',
+            boxShadow: '0 0 12px #d20000, 0 0 28px rgba(210,0,0,0.5)',
+          }}
+          animate={{ opacity: [1, 0.25, 1], scale: [1, 1.6, 1] }}
+          transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+        />
+        {/* travelling spark */}
+        <motion.div
+          style={{
+            position: 'absolute', top: '50%', left: 0,
+            transform: 'translateY(-50%)',
+            width: 48, height: 2,
+            background: 'linear-gradient(90deg, transparent, rgba(255,77,77,0.9), #ff4d4d)',
+            borderRadius: 2,
+            boxShadow: '0 0 8px #ff4d4d',
+          }}
+          animate={{ x: ['0%', '1300%'] }}
+          transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1.4 }}
+        />
+      </motion.div>
+    </div>
+  );
+};
 
 const App = () => {
   const [isLanding, setIsLanding] = useState(true);
@@ -320,14 +355,7 @@ const App = () => {
       {!isLanding && (
         <main>
           {/* About Section */}
-          <motion.section
-            className="section"
-            id="about"
-            variants={cyberTeleportVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.18 }}
-          >
+          <CyberSection as="section" className="section" id="about" delay={0}>
             <h2 className="section-header">ABOUT</h2>
             <p className="section-content">
               Discover endless opportunities to refine your coding prowess,
@@ -336,34 +364,22 @@ const App = () => {
               and specialized sessions. Unleash your potential, connect with
               like-minded peers, and shape a successful future in technology with us!
             </p>
-          </motion.section>
+          </CyberSection>
 
           <ScanLineSeparator />
 
           {/* Projects / Innovation Lab Section */}
-          <motion.section
-            variants={cyberTeleportVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.08 }}
-          >
+          <CyberSection as="section" delay={0}>
             <Projects onSelectProject={(p) => {
               audioFx.playSuccess();
               setSelectedProject(p);
             }} />
-          </motion.section>
+          </CyberSection>
 
           <ScanLineSeparator />
 
           {/* Events Section */}
-          <motion.section
-            className="section"
-            id="events"
-            variants={cyberTeleportVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.08 }}
-          >
+          <CyberSection as="section" className="section" id="events" delay={0}>
             <h2 className="section-header">EVENTS</h2>
             <p style={{ textAlign: 'center', opacity: 0.7, fontSize: '0.9rem', marginTop: '0.5rem', fontFamily: '"Space Mono", monospace' }}>
               (Click any event card for details)
@@ -373,7 +389,7 @@ const App = () => {
               variants={cardContainerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.08 }}
+              viewport={{ once: false, amount: 0.08 }}
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
@@ -440,55 +456,35 @@ const App = () => {
                 </motion.div>
               ))}
             </motion.div>
-          </motion.section>
+          </CyberSection>
 
           <ScanLineSeparator />
 
           {/* Hall of Fame / Achievements Section */}
-          <motion.section
-            variants={cyberTeleportVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.08 }}
-          >
+          <CyberSection as="section" delay={0}>
             <Achievements />
-          </motion.section>
+          </CyberSection>
 
           <ScanLineSeparator />
 
           {/* Team Section */}
-          <motion.div
-            variants={cyberTeleportVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.06 }}
-          >
+          <CyberSection as="div" delay={0}>
             <Team />
-          </motion.div>
+          </CyberSection>
 
           <ScanLineSeparator />
 
           {/* FAQ / How to Join Section */}
-          <motion.section
-            variants={cyberTeleportVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.08 }}
-          >
+          <CyberSection as="section" delay={0}>
             <FAQ />
-          </motion.section>
+          </CyberSection>
 
           <ScanLineSeparator />
 
           {/* Contact Section */}
-          <motion.div
-            variants={cyberTeleportVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.08 }}
-          >
+          <CyberSection as="div" delay={0}>
             <ContactUs />
-          </motion.div>
+          </CyberSection>
 
           <Footer
             onOpenPrivacy={() => setIsPrivacyOpen(true)}
