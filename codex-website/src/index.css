@@ -883,3 +883,26 @@ p {
   }
 }
 
+/* ─── Cyberpunk Teleport Section Transition ──────────────────────────────────
+   These keyframes provide an extra CSS-layer glitch flash on top of the
+   framer-motion variants, adding a one-shot red chromatic burst as sections
+   beam into view.  Applied via the .cyber-section-enter class (future use).
+   ──────────────────────────────────────────────────────────────────────────── */
+@keyframes cyberBeamIn {
+  0%   { clip-path: inset(60% 0 60% 0); opacity: 0; filter: blur(16px) brightness(3); }
+  25%  { clip-path: inset(20% 0 20% 0); opacity: 0.6; filter: blur(6px) brightness(1.8); }
+  60%  { clip-path: inset(0% 0 0% 0);   opacity: 0.9; filter: blur(2px) brightness(1.1); }
+  100% { clip-path: inset(0% 0 0% 0);   opacity: 1;   filter: blur(0px) brightness(1); }
+}
+
+@keyframes cyberScanPulse {
+  0%   { box-shadow: 0 0 0px #d20000; }
+  50%  { box-shadow: 0 0 18px #d20000, 0 0 40px rgba(210,0,0,0.3); }
+  100% { box-shadow: 0 0 0px #d20000; }
+}
+
+/* Section entrance: plays once when framer triggers. Used as optional layering. */
+.section-teleport-active {
+  animation: cyberBeamIn 0.65s cubic-bezier(0.16, 1.1, 0.3, 1) forwards;
+}
+

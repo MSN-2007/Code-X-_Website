@@ -65,18 +65,39 @@ const eventsData = [
   }
 ];
 
-const sectionMotionVariants = {
-  hidden: { opacity: 0, y: 35 },
+// ─── Cyberpunk Teleport Section Animation ────────────────────────────────────
+// Each section beams in like it's being materialized from a data stream.
+// Phase 1 (0-0.25s): glitch burst — high blur + chromatic offset + scaleX squish
+// Phase 2 (0.25-0.65s): snap to real — blur dissolves, scale snaps with overshoot
+// Phase 3 (0.65-0.85s): settle — slight bounce eases out
+const cyberTeleportVariants = {
+  hidden: {
+    opacity: 0,
+    y: 55,
+    scaleX: 0.88,
+    scaleY: 0.94,
+    filter: 'blur(14px) brightness(2.2) saturate(2)',
+    skewX: -1.5,
+  },
   visible: {
     opacity: 1,
     y: 0,
+    scaleX: 1,
+    scaleY: 1,
+    filter: 'blur(0px) brightness(1) saturate(1)',
+    skewX: 0,
     transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1]
+      duration: 0.75,
+      ease: [0.16, 1.1, 0.3, 1],          // custom spring-like ease with slight overshoot
+      opacity:  { duration: 0.35, ease: 'easeOut' },
+      filter:   { duration: 0.5,  ease: 'easeOut' },
+      scaleX:   { duration: 0.65, ease: [0.34, 1.56, 0.64, 1] }, // bouncy
+      skewX:    { duration: 0.4,  ease: 'easeOut' },
     }
   }
 };
 
+// ─── Stagger container for event / card grids ─────────────────────────────────
 const cardContainerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -88,18 +109,72 @@ const cardContainerVariants = {
   }
 };
 
+// ─── Individual card beam-in ──────────────────────────────────────────────────
 const cardItemVariants = {
-  hidden: { opacity: 0, y: 25, scale: 0.96 },
+  hidden: {
+    opacity: 0,
+    y: 30,
+    scale: 0.92,
+    filter: 'blur(8px) brightness(1.8)',
+  },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
+    filter: 'blur(0px) brightness(1)',
     transition: {
-      duration: 0.45,
-      ease: [0.22, 1, 0.36, 1]
+      duration: 0.5,
+      ease: [0.34, 1.26, 0.64, 1],
+      filter: { duration: 0.35, ease: 'easeOut' },
     }
   }
 };
+
+// ─── Scan-line separator that pulses when a section teleports in ──────────────
+const ScanLineSeparator = () => (
+  <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'center', margin: 'clamp(2.5rem,8vw,4rem) 0' }}>
+    <motion.div
+      style={{
+        width: 'min(90%, 56rem)',
+        height: '1px',
+        background: 'linear-gradient(90deg, transparent, rgba(210,0,0,0.6) 20%, rgba(255,77,77,0.9) 50%, rgba(210,0,0,0.6) 80%, transparent)',
+        position: 'relative',
+      }}
+      initial={{ scaleX: 0, opacity: 0 }}
+      whileInView={{ scaleX: 1, opacity: 1 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {/* centre dot */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '50%', left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: 6, height: 6,
+          borderRadius: '50%',
+          background: '#ff4d4d',
+          boxShadow: '0 0 10px #d20000, 0 0 24px #d20000',
+        }}
+        animate={{ opacity: [1, 0.3, 1], scale: [1, 1.5, 1] }}
+        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      {/* travelling spark */}
+      <motion.div
+        style={{
+          position: 'absolute',
+          top: '50%', left: 0,
+          transform: 'translateY(-50%)',
+          width: 40, height: 2,
+          background: 'linear-gradient(90deg, transparent, #ff4d4d)',
+          borderRadius: 2,
+        }}
+        animate={{ x: ['0%', '1300%'] }}
+        transition={{ duration: 2.8, repeat: Infinity, ease: 'easeInOut', repeatDelay: 1.2 }}
+      />
+    </motion.div>
+  </div>
+);
 
 const App = () => {
   const [isLanding, setIsLanding] = useState(true);
@@ -248,10 +323,10 @@ const App = () => {
           <motion.section
             className="section"
             id="about"
-            variants={sectionMotionVariants}
+            variants={cyberTeleportVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.18 }}
           >
             <h2 className="section-header">ABOUT</h2>
             <p className="section-content">
@@ -263,14 +338,14 @@ const App = () => {
             </p>
           </motion.section>
 
-          <div className="section-separator"></div>
+          <ScanLineSeparator />
 
           {/* Projects / Innovation Lab Section */}
           <motion.section
-            variants={sectionMotionVariants}
+            variants={cyberTeleportVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.08 }}
           >
             <Projects onSelectProject={(p) => {
               audioFx.playSuccess();
@@ -278,16 +353,16 @@ const App = () => {
             }} />
           </motion.section>
 
-          <div className="section-separator"></div>
+          <ScanLineSeparator />
 
           {/* Events Section */}
           <motion.section
             className="section"
             id="events"
-            variants={sectionMotionVariants}
+            variants={cyberTeleportVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.08 }}
           >
             <h2 className="section-header">EVENTS</h2>
             <p style={{ textAlign: 'center', opacity: 0.7, fontSize: '0.9rem', marginTop: '0.5rem', fontFamily: '"Space Mono", monospace' }}>
@@ -298,7 +373,7 @@ const App = () => {
               variants={cardContainerVariants}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.08 }}
               style={{
                 display: 'flex',
                 flexWrap: 'wrap',
@@ -367,50 +442,50 @@ const App = () => {
             </motion.div>
           </motion.section>
 
-          <div className="section-separator"></div>
+          <ScanLineSeparator />
 
           {/* Hall of Fame / Achievements Section */}
           <motion.section
-            variants={sectionMotionVariants}
+            variants={cyberTeleportVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.08 }}
           >
             <Achievements />
           </motion.section>
 
-          <div className="section-separator"></div>
+          <ScanLineSeparator />
 
           {/* Team Section */}
           <motion.div
-            variants={sectionMotionVariants}
+            variants={cyberTeleportVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.06 }}
           >
             <Team />
           </motion.div>
 
-          <div className="section-separator"></div>
+          <ScanLineSeparator />
 
           {/* FAQ / How to Join Section */}
           <motion.section
-            variants={sectionMotionVariants}
+            variants={cyberTeleportVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.08 }}
           >
             <FAQ />
           </motion.section>
 
-          <div className="section-separator"></div>
+          <ScanLineSeparator />
 
           {/* Contact Section */}
           <motion.div
-            variants={sectionMotionVariants}
+            variants={cyberTeleportVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.08 }}
           >
             <ContactUs />
           </motion.div>
