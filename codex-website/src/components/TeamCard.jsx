@@ -1,11 +1,19 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const TeamCard = ({ name, role, quote, image = "/assets/codex_dark_theme.png", objectPosition = "center", showSocial = true, linkedin, github }) => {
     const hasLinkedIn = Boolean(linkedin && linkedin.trim() !== "");
     const hasGitHub = Boolean(github && github.trim() !== "");
 
     return (
-        <div className="team-card">
+        <motion.div
+            className="team-card"
+            initial={{ opacity: 0, y: 35, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+        >
             <div className="card-image">
                 <img src={image} alt={name} style={{ objectPosition }} loading="lazy" />
             </div>
@@ -26,7 +34,7 @@ const TeamCard = ({ name, role, quote, image = "/assets/codex_dark_theme.png", o
                     )}
                 </div>
             )}
-        </div>
+        </motion.div>
     );
 };
 

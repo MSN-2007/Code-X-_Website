@@ -60,10 +60,20 @@ const Team = () => {
             <div className="section-separator" />
 
             {/* President & Vice President side-by-side */}
-            <div className="leadership-section">
-                <div className="leadership-block">
+            <div
+                className="leadership-section"
+                style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    gap: 'clamp(2rem, 6vw, 4rem)',
+                    flexWrap: 'wrap'
+                }}
+            >
+                <div className="leadership-block" style={{ flex: '1 1 280px', maxWidth: '360px' }}>
                     <h3 className="sub-section-header">President</h3>
-                    <div className="team-grid">
+                    <div className="team-grid" style={{ marginTop: '1rem' }}>
                         <TeamCard
                             name="Manish"
                             quote={`I write code that writes outcomes.`}
@@ -74,9 +84,9 @@ const Team = () => {
                     </div>
                 </div>
 
-                <div className="leadership-block">
+                <div className="leadership-block" style={{ flex: '1 1 280px', maxWidth: '360px' }}>
                     <h3 className="sub-section-header">Vice President</h3>
-                    <div className="team-grid">
+                    <div className="team-grid" style={{ marginTop: '1rem' }}>
                         <TeamCard
                             name="Monish"
                             quote={`Logic on the Board. Vision in the Code.`}
@@ -155,9 +165,21 @@ const Team = () => {
 
             {/* Head of Operations - Both members side by side under the same domain */}
             <div className="leadership-section">
-                <div className="leadership-block" style={{ maxWidth: '100%' }}>
+                <div className="leadership-block" style={{ maxWidth: '100%', width: '100%' }}>
                     <h3 className="sub-section-header">Head of Operations</h3>
-                    <div className="team-grid">
+                    <div
+                        className="team-grid"
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            gap: 'clamp(1.5rem, 4vw, 3rem)',
+                            flexWrap: 'wrap',
+                            marginTop: '1rem',
+                            width: '100%'
+                        }}
+                    >
                         {operations.map(member => (
                             <TeamCard
                                 key={member.name}
