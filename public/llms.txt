@@ -12,8 +12,13 @@
 - **Faculty Mentor**: Dr. Amogh Deshmukh (Assistant Dean - School of Technology, Woxsen University)
 - **President**: Manish
 - **Vice President**: Monish
-- **Core Leadership**: Nitin, Hassan, Deepti, Sudarshan, Adeeb
-- **Executive Board**: Sufiyan, Parth, Levin, Chandrahas, Karthika, Rian, Samarth, Chidvilas
+- **Secretary**: Deepti
+- **Head of Outreach**: Nitin
+- **Head of Operations**: Levin, Chandrahas
+- **Head of Creatives**: Rian
+- **Head of Marketing**: Karthika
+- **Core Members**: Hassan, Sudarshan
+- **Executive Board**: Sufiyan, Parth, Chidvilas
 
 ## Core Technical Domain Tracks
 1. **AI & Machine Learning (NEURAL_CORE)**: Autonomous agents, LLMs, Computer Vision (YOLO/Edge), and Deep Learning.

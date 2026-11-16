@@ -211,7 +211,6 @@ For inquiries, reach our administrative desk at: [codex.woxsen.edu.in](mailto:co
 3. Innovation lab projects and proprietary tooling maintained by Code{X}.
 4. Ethical cybersecurity practices restricted to authorized sandbox targets.`
                 });
-                break;            });
                 break;
 
             case 'projects':
@@ -242,12 +241,17 @@ For inquiries, reach our administrative desk at: [codex.woxsen.edu.in](mailto:co
             case 'team':
                 newEntries.push({
                     type: 'output',
-                    text: `// CODE{X} LEADERSHIP:
+                    text: `// CODE{X} LEADERSHIP & CORE SQUAD:
 • Mentor: Dr. Amogh Deshmukh (Assistant Dean - SoT)
 • President: Manish ("I write code that writes outcomes.")
 • Vice President: Monish ("Logic on the Board. Vision in the Code.")
-• Core Members: Nitin, Hassan, Deepti, Sudarshan, Adeeb
-• Executives: Sufiyan, Parth, Levin, Chandrahas, Karthika, Rian, Samarth, Chidvilas`
+• Secretary: Deepti
+• Head of Outreach: Nitin
+• Head of Operations: Levin & Chandrahas
+• Head of Creatives: Rian
+• Head of Marketing: Karthika
+• Core Members: Hassan, Sudarshan
+• Executives: Sufiyan, Parth, Chidvilas`
                 });
                 break;
 
