@@ -98,6 +98,25 @@ export const projectsData = [
         status: "Live Production"
     },
     {
+        id: 'certforge',
+        title: "CertForge",
+        category: "Automation",
+        tagline: "Bulk certificate generation engine — template in, ZIP out",
+        description: "Upload a certificate template + a list of student names, and CertForge automatically renders every certificate with the name placed pixel-perfectly, then packages them all into a single downloadable ZIP.",
+        fullDescription: "CertForge is Code{X}'s internal mass-certificate automation tool built to eliminate hours of manual work after every event. Organizers upload a JPG/PNG/PDF template, drop in a CSV or plain-text list of participant names, choose the font, size, colour, and position — and the engine renders hundreds of personalised certificates in seconds, then bundles them into a password-protected ZIP ready for instant distribution.",
+        features: [
+            "Drag-and-drop template upload (PNG / JPG / PDF)",
+            "CSV or plain-text name-list ingestion — unlimited rows",
+            "Visual text-placement editor with font, size & colour control",
+            "One-click ZIP export with all certificates named per student"
+        ],
+        techStack: ["Python", "Pillow", "ReportLab", "FastAPI", "React", "JSZip"],
+        image: "https://images.unsplash.com/photo-1568667256549-094345857637?w=800&q=80",
+        demoUrl: "https://github.com/CODEX-WoU/",
+        githubUrl: "https://github.com/CODEX-WoU/",
+        status: "Active Development"
+    },
+    {
         id: 'bootcamp2026',
         title: "Developer Bootcamp 2026",
         category: "Events",
@@ -118,7 +137,7 @@ export const projectsData = [
     }
 ];
 
-const categories = ["All", "AI & ML", "Competitive Dev", "Systems & Security", "Web & Cloud", "Events"];
+const categories = ["All", "AI & ML", "Competitive Dev", "Systems & Security", "Web & Cloud", "Automation", "Events"];
 
 // Status badge colour mapping
 const statusColors = {
