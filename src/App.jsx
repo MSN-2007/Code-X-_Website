@@ -22,6 +22,14 @@ import { audioFx } from './utils/audioFx';
 
 const eventsData = [
   {
+    title: "Developer Bootcamp 2026",
+    description: "An intensive multi-track developer bootcamp curated and led by Code{X} Core Members. Featuring hands-on tracks in Full-Stack Web Development, Cyber Security & CTFs, AI/ML, and Open Source contribution workflows.",
+    date: "Coming Soon 2026",
+    participants: "Registrations Opening Soon",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+    isComingSoon: true
+  },
+  {
     title: "BUG-X: Debugging Grand Prix 2026",
     description: "Flagship collegiate debugging grand prix held in collaboration with COTD. Over 200 student developers raced against the clock across rigorous rounds to hunt vulnerabilities, diagnose complex issues, and optimize algorithmic performance.",
     date: "February 2026",
@@ -380,8 +388,33 @@ const App = () => {
                       src={event.image}
                       alt={event.title}
                       loading="lazy"
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        transition: 'transform 0.5s ease',
+                        filter: event.isComingSoon ? 'brightness(0.7) contrast(1.1)' : undefined
+                      }}
                     />
+                    {event.isComingSoon && (
+                      <div style={{
+                        position: 'absolute',
+                        top: '10px',
+                        right: '10px',
+                        background: '#d20000',
+                        color: '#ffffff',
+                        padding: '0.2rem 0.6rem',
+                        borderRadius: '4px',
+                        fontSize: '0.7rem',
+                        fontFamily: '"Space Mono", monospace',
+                        fontWeight: 700,
+                        letterSpacing: '1px',
+                        boxShadow: '0 0 12px rgba(210,0,0,0.6)',
+                        textTransform: 'uppercase'
+                      }}>
+                        Coming Soon
+                      </div>
+                    )}
                     {event.date && (
                       <div style={{
                         position: 'absolute',

@@ -92,7 +92,7 @@ export const projectsData = [
             "Dynamic event registration and attendee pipelines"
         ],
         techStack: ["React", "Vite", "Framer Motion", "Web Audio API", "CSS3"],
-        image: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80",
+        image: "/assets/codex_dark_theme.png",
         demoUrl: "https://codex-wou.vercel.app/",
         githubUrl: "https://github.com/MSN-2007/Code-X-_Website",
         status: "Live Production"
@@ -115,29 +115,10 @@ export const projectsData = [
         demoUrl: "https://github.com/CODEX-WoU/",
         githubUrl: "https://github.com/CODEX-WoU/",
         status: "Active Development"
-    },
-    {
-        id: 'bootcamp2026',
-        title: "Developer Bootcamp 2026",
-        category: "Events",
-        tagline: "Intensive multi-track developer training programme — Coming Soon",
-        description: "An immersive 3-day multi-track bootcamp covering Full-Stack Web Dev, Cyber Security, AI/ML foundations, and competitive programming — open to all Woxsen students.",
-        fullDescription: "Developer Bootcamp 2026 is Code{X}'s flagship annual training event. Curated and led by core members and industry mentors, this intensive bootcamp covers hands-on sessions across Web Development, Ethical Hacking, Machine Learning, and Open Source contribution workflows. All skill levels welcome.",
-        features: [
-            "Full-Stack Web Development track (React, Node, Databases)",
-            "Ethical Hacking & CTF Foundations track",
-            "AI/ML with Python — from basics to deployment",
-            "Open Source & Git/GitHub contribution workshop"
-        ],
-        techStack: ["React", "Python", "Node.js", "Git", "Linux", "Docker"],
-        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
-        demoUrl: "https://github.com/CODEX-WoU/",
-        githubUrl: "https://github.com/CODEX-WoU/",
-        status: "Coming Soon"
     }
 ];
 
-const categories = ["All", "AI & ML", "Competitive Dev", "Systems & Security", "Web & Cloud", "Automation", "Events"];
+const categories = ["All", "AI & ML", "Competitive Dev", "Systems & Security", "Web & Cloud", "Automation"];
 
 // Status badge colour mapping
 const statusColors = {
@@ -263,7 +244,9 @@ const Projects = ({ onSelectProject }) => {
                                     style={{
                                         width: '100%',
                                         height: '100%',
-                                        objectFit: 'cover',
+                                        objectFit: project.id === 'codexportal' ? 'contain' : 'cover',
+                                        background: project.id === 'codexportal' ? '#080808' : undefined,
+                                        padding: project.id === 'codexportal' ? '1.5rem' : undefined,
                                         filter: isComingSoon ? 'brightness(0.5) saturate(0.7)' : 'none'
                                     }}
                                     loading="lazy"
