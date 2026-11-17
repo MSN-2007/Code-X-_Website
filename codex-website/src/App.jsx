@@ -22,12 +22,12 @@ import { audioFx } from './utils/audioFx';
 
 const eventsData = [
   {
-    title: "Developer Bootcamp 2026",
-    description: "An intensive multi-track developer bootcamp curated and led by Code{X} Core Members. Featuring hands-on tracks in Full-Stack Web Development, Cyber Security & CTFs, AI/ML, and Open Source contribution workflows.",
-    date: "Coming Soon 2026",
-    participants: "Registrations Opening Soon",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
-    isComingSoon: true
+    title: "Smart India Hackathon 2026",
+    description: "Official internal registration and screening round for Smart India Hackathon 2026 at Woxsen University. Form teams of 6 (minimum 1 female member mandatory) to solve real-world problem statements, receive expert mentorship, and represent Woxsen at the nation's biggest innovation hackathon.",
+    date: "Registrations Open 2026",
+    participants: "Teams of 6 (All Branches)",
+    image: "/assets/events/sih2026.jpg",
+    registrationOpen: true
   },
   {
     title: "BUG-X: Debugging Grand Prix 2026",
@@ -35,6 +35,14 @@ const eventsData = [
     date: "February 2026",
     participants: "200+ Participants",
     image: "/assets/bug_poster.jpg"
+  },
+  {
+    title: "Developer Bootcamp 2026",
+    description: "An intensive multi-track developer bootcamp curated and led by Code{X} Core Members. Featuring hands-on tracks in Full-Stack Web Development, Cyber Security & CTFs, AI/ML, and Open Source contribution workflows.",
+    date: "Coming Soon 2026",
+    participants: "Registrations Opening Soon",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
+    isComingSoon: true
   },
   {
     title: "Freshman Induction by GeeksForGeeks 2023",
@@ -392,10 +400,30 @@ const App = () => {
                         width: '100%',
                         height: '100%',
                         objectFit: 'cover',
+                        objectPosition: event.image.includes('sih2026') ? 'top center' : 'center',
                         transition: 'transform 0.5s ease',
                         filter: event.isComingSoon ? 'brightness(0.7) contrast(1.1)' : undefined
                       }}
                     />
+                    {event.registrationOpen && (
+                      <div style={{
+                        position: 'absolute',
+                        top: '10px',
+                        right: '10px',
+                        background: '#22c55e',
+                        color: '#ffffff',
+                        padding: '0.2rem 0.6rem',
+                        borderRadius: '4px',
+                        fontSize: '0.7rem',
+                        fontFamily: '"Space Mono", monospace',
+                        fontWeight: 700,
+                        letterSpacing: '1px',
+                        boxShadow: '0 0 12px rgba(34, 197, 94, 0.6)',
+                        textTransform: 'uppercase'
+                      }}>
+                        Open Now
+                      </div>
+                    )}
                     {event.isComingSoon && (
                       <div style={{
                         position: 'absolute',

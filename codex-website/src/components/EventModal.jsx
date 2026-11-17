@@ -87,11 +87,16 @@ const EventModal = ({ event, onClose }) => {
                         ✕
                     </button>
 
-                    <div style={{ maxHeight: '300px', width: '100%', overflow: 'hidden', backgroundColor: '#050505' }}>
+                    <div style={{ maxHeight: '360px', width: '100%', overflow: 'hidden', backgroundColor: '#050505', display: 'flex', justifyContent: 'center' }}>
                         <img
                             src={event.image}
                             alt={event.title}
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                maxHeight: '360px',
+                                objectFit: (event.image.includes('sih2026') || event.image.includes('bug_poster')) ? 'contain' : 'cover'
+                            }}
                         />
                     </div>
 
