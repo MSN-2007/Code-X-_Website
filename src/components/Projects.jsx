@@ -16,7 +16,7 @@ export const projectsData = [
             "Real-time visual screen & code parsing pipeline"
         ],
         techStack: ["Python", "FastAPI", "PyTorch", "LangChain", "Electron", "Ollama"],
-        image: "/assets/events/4event.png",
+        image: "/assets/jarvis.jpg",
         demoUrl: "https://github.com/CODEX-WoU/",
         githubUrl: "https://github.com/CODEX-WoU/",
         status: "Active Development"
@@ -35,7 +35,7 @@ export const projectsData = [
             "Live code diffing & spectator broadcast mode"
         ],
         techStack: ["React", "Node.js", "Docker", "WebSockets", "Redis", "PostgreSQL"],
-        image: "/assets/events/2event.png",
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
         demoUrl: "https://github.com/CODEX-WoU/",
         githubUrl: "https://github.com/CODEX-WoU/",
         status: "Live Beta"
@@ -54,7 +54,7 @@ export const projectsData = [
             "Modular CTF challenge orchestration & scoring"
         ],
         techStack: ["Go", "Python", "Scapy", "Wireshark API", "Docker"],
-        image: "/assets/events/3event.png",
+        image: "https://images.unsplash.com/photo-1563206767-5b18f218e8de?w=800&q=80",
         demoUrl: "https://github.com/CODEX-WoU/",
         githubUrl: "https://github.com/CODEX-WoU/",
         status: "Maintained"
@@ -73,7 +73,7 @@ export const projectsData = [
             "Autonomous obstacle avoidance ROS2 integration"
         ],
         techStack: ["C++", "OpenCV", "TensorRT", "YOLOv8", "ROS2"],
-        image: "/assets/events/5event.jpg",
+        image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
         demoUrl: "https://github.com/CODEX-WoU/",
         githubUrl: "https://github.com/CODEX-WoU/",
         status: "Completed"
@@ -92,14 +92,43 @@ export const projectsData = [
             "Dynamic event registration and attendee pipelines"
         ],
         techStack: ["React", "Vite", "Framer Motion", "Web Audio API", "CSS3"],
-        image: "/assets/codex_dark_theme.png",
+        image: "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80",
+        demoUrl: "https://codex-wou.vercel.app/",
+        githubUrl: "https://github.com/MSN-2007/Code-X-_Website",
+        status: "Live Production"
+    },
+    {
+        id: 'bootcamp2026',
+        title: "Developer Bootcamp 2026",
+        category: "Events",
+        tagline: "Intensive multi-track developer training programme — Coming Soon",
+        description: "An immersive 3-day multi-track bootcamp covering Full-Stack Web Dev, Cyber Security, AI/ML foundations, and competitive programming — open to all Woxsen students.",
+        fullDescription: "Developer Bootcamp 2026 is Code{X}'s flagship annual training event. Curated and led by core members and industry mentors, this intensive bootcamp covers hands-on sessions across Web Development, Ethical Hacking, Machine Learning, and Open Source contribution workflows. All skill levels welcome.",
+        features: [
+            "Full-Stack Web Development track (React, Node, Databases)",
+            "Ethical Hacking & CTF Foundations track",
+            "AI/ML with Python — from basics to deployment",
+            "Open Source & Git/GitHub contribution workshop"
+        ],
+        techStack: ["React", "Python", "Node.js", "Git", "Linux", "Docker"],
+        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80",
         demoUrl: "https://github.com/CODEX-WoU/",
         githubUrl: "https://github.com/CODEX-WoU/",
-        status: "Live Production"
+        status: "Coming Soon"
     }
 ];
 
-const categories = ["All", "AI & ML", "Competitive Dev", "Systems & Security", "Web & Cloud"];
+const categories = ["All", "AI & ML", "Competitive Dev", "Systems & Security", "Web & Cloud", "Events"];
+
+// Status badge colour mapping
+const statusColors = {
+    "Active Development": "#f59e0b",
+    "Live Beta":          "#22c55e",
+    "Live Production":    "#22c55e",
+    "Maintained":         "#3b82f6",
+    "Completed":          "#8b5cf6",
+    "Coming Soon":        "#d20000",
+};
 
 const Projects = ({ onSelectProject }) => {
     const [activeFilter, setActiveFilter] = useState("All");
@@ -158,154 +187,218 @@ const Projects = ({ onSelectProject }) => {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
                 gap: '2rem'
             }}>
-                {filteredProjects.map((project) => (
-                    <motion.div
-                        key={project.id}
-                        layout
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.3 }}
-                        whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                        style={{
-                            background: 'rgba(255, 255, 255, 0.03)',
-                            border: '1px solid rgba(255, 255, 255, 0.08)',
-                            borderRadius: '16px',
-                            overflow: 'hidden',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)',
-                            transition: 'border-color 0.3s ease, box-shadow 0.3s ease'
-                        }}
-                        className="project-card"
-                    >
-                        <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                loading="lazy"
-                            />
-                            <span style={{
-                                position: 'absolute',
-                                top: '10px',
-                                right: '10px',
-                                background: 'rgba(0, 0, 0, 0.75)',
-                                color: '#ff4d4d',
-                                border: '1px solid rgba(210,0,0,0.4)',
-                                padding: '0.2rem 0.6rem',
-                                borderRadius: '4px',
-                                fontSize: '0.72rem',
-                                fontFamily: '"Space Mono", monospace',
-                                backdropFilter: 'blur(4px)'
-                            }}>
-                                {project.category}
-                            </span>
-                        </div>
-
-                        <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                            <h3 style={{
-                                color: '#ffffff',
-                                fontSize: '1.25rem',
-                                marginBottom: '0.35rem',
-                                fontFamily: '"Bruno Ace", sans-serif'
-                            }}>
-                                {project.title}
-                            </h3>
-
-                            <p style={{
-                                color: '#ff4d4d',
-                                fontSize: '0.82rem',
-                                fontFamily: '"Space Mono", monospace',
-                                marginBottom: '0.8rem',
-                                textAlign: 'left',
-                                marginTop: 0
-                            }}>
-                                {project.tagline}
-                            </p>
-
-                            <p style={{
-                                fontSize: '0.88rem',
-                                color: '#aaa',
-                                lineHeight: 1.5,
-                                textAlign: 'left',
-                                margin: 0,
-                                flex: 1,
-                                display: '-webkit-box',
-                                WebkitLineClamp: 3,
-                                WebkitBoxOrient: 'vertical',
-                                overflow: 'hidden'
-                            }}>
-                                {project.description}
-                            </p>
-
-                            {/* Tech Badges */}
-                            <div style={{
+                {filteredProjects.map((project) => {
+                    const isComingSoon = project.status === "Coming Soon";
+                    return (
+                        <motion.div
+                            key={project.id}
+                            layout
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.3 }}
+                            whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                            style={{
+                                background: isComingSoon
+                                    ? 'rgba(210, 0, 0, 0.04)'
+                                    : 'rgba(255, 255, 255, 0.03)',
+                                border: `1px solid ${isComingSoon ? 'rgba(210, 0, 0, 0.3)' : 'rgba(255, 255, 255, 0.08)'}`,
+                                borderRadius: '16px',
+                                overflow: 'hidden',
                                 display: 'flex',
-                                flexWrap: 'wrap',
-                                gap: '0.4rem',
-                                margin: '1.2rem 0 1.2rem 0'
-                            }}>
-                                {project.techStack.slice(0, 4).map((tech, i) => (
-                                    <span key={i} style={{
-                                        background: 'rgba(255,255,255,0.04)',
-                                        border: '1px solid rgba(255,255,255,0.1)',
-                                        color: '#bbb',
-                                        fontSize: '0.72rem',
-                                        padding: '0.15rem 0.5rem',
-                                        borderRadius: '4px',
-                                        fontFamily: '"Space Mono", monospace'
-                                    }}>
-                                        {tech}
-                                    </span>
-                                ))}
+                                flexDirection: 'column',
+                                boxShadow: isComingSoon
+                                    ? '0 8px 30px rgba(210, 0, 0, 0.12)'
+                                    : '0 8px 25px rgba(0, 0, 0, 0.3)',
+                                transition: 'border-color 0.3s ease, box-shadow 0.3s ease',
+                                position: 'relative'
+                            }}
+                            className="project-card"
+                        >
+                            {/* Coming Soon diagonal ribbon */}
+                            {isComingSoon && (
+                                <div style={{
+                                    position: 'absolute',
+                                    top: 18,
+                                    right: -28,
+                                    background: '#d20000',
+                                    color: '#fff',
+                                    fontFamily: '"Space Mono", monospace',
+                                    fontSize: '0.65rem',
+                                    fontWeight: 700,
+                                    letterSpacing: '1.5px',
+                                    padding: '4px 36px',
+                                    transform: 'rotate(35deg)',
+                                    zIndex: 10,
+                                    boxShadow: '0 2px 12px rgba(210,0,0,0.5)',
+                                    textTransform: 'uppercase'
+                                }}>
+                                    Coming Soon
+                                </div>
+                            )}
+
+                            <div style={{ height: '180px', overflow: 'hidden', position: 'relative' }}>
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        filter: isComingSoon ? 'brightness(0.5) saturate(0.7)' : 'none'
+                                    }}
+                                    loading="lazy"
+                                />
+                                {/* Category badge */}
+                                <span style={{
+                                    position: 'absolute',
+                                    top: '10px',
+                                    right: '10px',
+                                    background: 'rgba(0, 0, 0, 0.75)',
+                                    color: '#ff4d4d',
+                                    border: '1px solid rgba(210,0,0,0.4)',
+                                    padding: '0.2rem 0.6rem',
+                                    borderRadius: '4px',
+                                    fontSize: '0.72rem',
+                                    fontFamily: '"Space Mono", monospace',
+                                    backdropFilter: 'blur(4px)'
+                                }}>
+                                    {project.category}
+                                </span>
+
+                                {/* Status badge bottom-left */}
+                                <span style={{
+                                    position: 'absolute',
+                                    bottom: '10px',
+                                    left: '10px',
+                                    background: 'rgba(0,0,0,0.78)',
+                                    color: statusColors[project.status] || '#aaa',
+                                    border: `1px solid ${statusColors[project.status] || '#aaa'}44`,
+                                    padding: '0.15rem 0.55rem',
+                                    borderRadius: '4px',
+                                    fontSize: '0.68rem',
+                                    fontFamily: '"Space Mono", monospace',
+                                    backdropFilter: 'blur(4px)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '0.3rem'
+                                }}>
+                                    <span style={{
+                                        display: 'inline-block',
+                                        width: 6,
+                                        height: 6,
+                                        borderRadius: '50%',
+                                        background: statusColors[project.status] || '#aaa',
+                                        boxShadow: `0 0 6px ${statusColors[project.status] || '#aaa'}`
+                                    }} />
+                                    {project.status}
+                                </span>
                             </div>
 
-                            {/* Card Footer Actions */}
-                            <div style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
-                                paddingTop: '0.8rem',
-                                borderTop: '1px solid rgba(255, 255, 255, 0.06)'
-                            }}>
-                                <button
-                                    onClick={() => onSelectProject(project)}
-                                    style={{
-                                        background: 'transparent',
-                                        border: 'none',
-                                        color: '#ff4d4d',
-                                        fontFamily: '"Space Mono", monospace',
-                                        fontSize: '0.85rem',
-                                        cursor: 'pointer',
-                                        padding: 0,
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.35rem'
-                                    }}
-                                >
-                                    Deep Dive Spec <span>→</span>
-                                </button>
+                            <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                                <h3 style={{
+                                    color: '#ffffff',
+                                    fontSize: '1.25rem',
+                                    marginBottom: '0.35rem',
+                                    fontFamily: '"Bruno Ace", sans-serif'
+                                }}>
+                                    {project.title}
+                                </h3>
 
-                                <div style={{ display: 'flex', gap: '0.6rem' }}>
-                                    {project.githubUrl && (
-                                        <a
-                                            href={project.githubUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            style={{ color: '#888', fontSize: '1.1rem', transition: 'color 0.2s' }}
-                                            onMouseEnter={(e) => e.currentTarget.style.color = '#fff'}
-                                            onMouseLeave={(e) => e.currentTarget.style.color = '#888'}
-                                            title="View Source Code"
-                                        >
-                                            <i className="fa fa-github"></i>
-                                        </a>
-                                    )}
+                                <p style={{
+                                    color: '#ff4d4d',
+                                    fontSize: '0.82rem',
+                                    fontFamily: '"Space Mono", monospace',
+                                    marginBottom: '0.8rem',
+                                    textAlign: 'left',
+                                    marginTop: 0
+                                }}>
+                                    {project.tagline}
+                                </p>
+
+                                <p style={{
+                                    fontSize: '0.88rem',
+                                    color: '#aaa',
+                                    lineHeight: 1.5,
+                                    textAlign: 'left',
+                                    margin: 0,
+                                    flex: 1,
+                                    display: '-webkit-box',
+                                    WebkitLineClamp: 3,
+                                    WebkitBoxOrient: 'vertical',
+                                    overflow: 'hidden'
+                                }}>
+                                    {project.description}
+                                </p>
+
+                                {/* Tech Badges */}
+                                <div style={{
+                                    display: 'flex',
+                                    flexWrap: 'wrap',
+                                    gap: '0.4rem',
+                                    margin: '1.2rem 0 1.2rem 0'
+                                }}>
+                                    {project.techStack.slice(0, 4).map((tech, i) => (
+                                        <span key={i} style={{
+                                            background: 'rgba(255,255,255,0.04)',
+                                            border: '1px solid rgba(255,255,255,0.1)',
+                                            color: '#bbb',
+                                            fontSize: '0.72rem',
+                                            padding: '0.15rem 0.5rem',
+                                            borderRadius: '4px',
+                                            fontFamily: '"Space Mono", monospace'
+                                        }}>
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                {/* Card Footer Actions */}
+                                <div style={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    paddingTop: '0.8rem',
+                                    borderTop: '1px solid rgba(255, 255, 255, 0.06)'
+                                }}>
+                                    <button
+                                        onClick={() => onSelectProject(project)}
+                                        style={{
+                                            background: 'transparent',
+                                            border: 'none',
+                                            color: '#ff4d4d',
+                                            fontFamily: '"Space Mono", monospace',
+                                            fontSize: '0.85rem',
+                                            cursor: 'pointer',
+                                            padding: 0,
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '0.35rem'
+                                        }}
+                                    >
+                                        {isComingSoon ? 'Preview Details' : 'Deep Dive Spec'} <span>→</span>
+                                    </button>
+
+                                    <div style={{ display: 'flex', gap: '0.6rem' }}>
+                                        {project.githubUrl && (
+                                            <a
+                                                href={project.githubUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                style={{ color: '#888', fontSize: '1.1rem', transition: 'color 0.2s' }}
+                                                onMouseEnter={(e) => e.currentTarget.style.color = '#fff'}
+                                                onMouseLeave={(e) => e.currentTarget.style.color = '#888'}
+                                                title="View Source Code"
+                                            >
+                                                <i className="fa fa-github"></i>
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </motion.div>
-                ))}
+                        </motion.div>
+                    );
+                })}
             </div>
         </div>
     );
