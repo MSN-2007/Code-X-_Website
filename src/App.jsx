@@ -23,11 +23,10 @@ import { audioFx } from './utils/audioFx';
 const eventsData = [
   {
     title: "Smart India Hackathon 2026",
-    description: "Official internal registration and screening round for Smart India Hackathon 2026 at Woxsen University. Form teams of 6 (minimum 1 female member mandatory) to solve real-world problem statements, receive expert mentorship, and represent Woxsen at the nation's biggest innovation hackathon.",
-    date: "Registrations Open 2026",
+    description: "Official internal registration and screening round for Smart India Hackathon 2026 at Woxsen University. Teams of 6 tackled complex national problem statements across AI/ML, Smart Automation, and CleanTech to represent Woxsen.",
+    date: "Concluded 2026",
     participants: "Teams of 6 (All Branches)",
-    image: "/assets/events/sih2026.jpg",
-    registrationOpen: true
+    image: "/assets/events/sih2026.jpg"
   },
   {
     title: "BUG-X: Debugging Grand Prix 2026",
