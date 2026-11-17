@@ -42,7 +42,7 @@ const Team = () => {
         <div className="section" id="team">
             <h2 className="section-header">MEET THE TEAM</h2>
 
-            {/* Mentor */}
+            {/* Mentor - temporarily commented out for later update
             <div className="leadership-section">
                 <div className="leadership-block">
                     <h3 className="sub-section-header">Mentor</h3>
@@ -59,6 +59,7 @@ const Team = () => {
             </div>
 
             <div className="section-separator" />
+            */}
 
             {/* President & Vice President side-by-side */}
             <div

@@ -29,13 +29,6 @@ const eventsData = [
     image: "/assets/events/sih2026.jpg"
   },
   {
-    title: "BUG-X: Debugging Grand Prix 2026",
-    description: "Flagship collegiate debugging grand prix held in collaboration with COTD. Over 200 student developers raced against the clock across rigorous rounds to hunt vulnerabilities, diagnose complex issues, and optimize algorithmic performance.",
-    date: "February 2026",
-    participants: "200+ Participants",
-    image: "/assets/bug_poster.jpg"
-  },
-  {
     title: "Developer Bootcamp 2026",
     description: "An intensive multi-track developer bootcamp curated and led by Code{X} Core Members. Featuring hands-on tracks in Full-Stack Web Development, Cyber Security & CTFs, AI/ML, and Open Source contribution workflows.",
     date: "Coming Soon 2026",
