@@ -32,9 +32,10 @@ const Team = () => {
 
     // Executives
     const executives = [
-        { name: "Sufiyan", quote: "We don't discuss the future, We prototype it.", linkedin: "https://www.linkedin.com/in/mohd-sufiyan-naveed", github: "https://github.com/MSN-2007", image: "/assets/team/1exec.JPG" },
         { name: "Parth", quote: "Precision Over Hype", linkedin: "https://www.linkedin.com/in/parthbajaj29", github: "https://github.com/Parth-Bajaj", image: "/assets/team/3exec.JPG" },
         { name: "Chidvilas", quote: "Cipher.", linkedin: "https://www.linkedin.com/in/chidvilas-meesala-3ba313278/", github: "https://github.com/chidvilas05-code", image: "/assets/team/9exec.JPG" },
+        { name: "Sufiyan", quote: "We don't discuss the future, We prototype it.", linkedin: "https://www.linkedin.com/in/mohd-sufiyan-naveed", github: "https://github.com/MSN-2007", image: "/assets/team/1exec.JPG" },
+
     ];
 
     return (
