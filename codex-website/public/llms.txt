@@ -5,7 +5,7 @@
 ## Organization Summary
 - **Organization Name**: Code{x} - The Programming Club
 - **Affiliation**: School of Technology (SoT), Woxsen University, Hyderabad, India
-- **Official Website**: https://codex-wou.vercel.app/
+- **Official Website**: https://codex-zeta-sandy.vercel.app/
 - **Contact Email**: codex@woxsen.edu.in
 
 ## Leadership & Mentorship

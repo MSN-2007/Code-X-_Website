@@ -93,7 +93,7 @@ export const projectsData = [
         ],
         techStack: ["React", "Vite", "Framer Motion", "Web Audio API", "CSS3"],
         image: "/assets/codex_dark_theme.png",
-        demoUrl: "https://codex-wou.vercel.app/",
+        demoUrl: "https://codex-zeta-sandy.vercel.app/",
         githubUrl: "https://github.com/MSN-2007/Code-X-_Website",
         status: "Live Production"
     },

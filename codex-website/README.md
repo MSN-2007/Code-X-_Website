@@ -11,14 +11,14 @@
   </p>
 
   <p align="center">
-    <a href="https://codex-wou.vercel.app/"><img src="https://img.shields.io/badge/🌐_Live_Portal-codex--wou.vercel.app-d20000?style=for-the-badge" alt="Live Portal"></a>
+    <a href="https://codex-zeta-sandy.vercel.app/"><img src="https://img.shields.io/badge/🌐_Live_Portal-codex--zeta--sandy.vercel.app-d20000?style=for-the-badge" alt="Live Portal"></a>
     <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19"></a>
     <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-7.0-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite 7"></a>
     <a href="https://woxsen.edu.in/"><img src="https://img.shields.io/badge/Woxsen-University-d20000?style=for-the-badge" alt="Woxsen University"></a>
   </p>
 
   <p align="center">
-    <a href="https://codex-wou.vercel.app/"><strong>Explore Portal »</strong></a> •
+    <a href="https://codex-zeta-sandy.vercel.app/"><strong>Explore Portal »</strong></a> •
     <a href="https://woxsen.edu.in/">Woxsen.edu.in</a> •
     <a href="https://www.linkedin.com/company/codex-wou">LinkedIn</a> •
     <a href="https://www.instagram.com/codex_wou">Instagram</a> •
@@ -88,7 +88,7 @@ The **Code{X} Portal** is an interactive web experience featuring real-time Web 
 Code{X} is guided by the mentorship of **[Woxsen University's](https://woxsen.edu.in/) School of Technology** faculty and driven by collegiate student leaders, core domain architects, and executive teams across AI/ML, Cybersecurity, Web Engineering, Competitive Programming, and Creative Design.
 
 * 🎓 **Faculty Mentorship**: School of Technology, [Woxsen University](https://woxsen.edu.in/)
-* 👥 **Explore the Active Team**: View the current leadership roster, core domain architects, and executive board on the **[Live Team Portal](https://codex-wou.vercel.app/#team)**.
+* 👥 **Explore the Active Team**: View the current leadership roster, core domain architects, and executive board on the **[Live Team Portal](https://codex-zeta-sandy.vercel.app/#team)**.
 
 ---
 
